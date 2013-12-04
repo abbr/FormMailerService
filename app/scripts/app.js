@@ -12,6 +12,10 @@ angular.module('formMailerServiceApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
+      .when('/admin', {
+        templateUrl: 'partials/admin',
+        controller: 'AdminCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
