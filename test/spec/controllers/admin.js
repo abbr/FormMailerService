@@ -13,7 +13,7 @@ describe('Controller: AdminCtrl', function () {
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
     $httpBackend = _$httpBackend_;
     $httpBackend.expectGET('/api/awesomeThings')
-      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
+      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);    
     scope = $rootScope.$new();
     AdminCtrl = $controller('AdminCtrl', {
       $scope: scope
