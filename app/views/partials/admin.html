@@ -1,1 +1,21 @@
-<p>This is the admin view.</p>
+<div class="header">
+  <h3 class="text-muted">Forms You Have Setup</h3>
+</div>
+
+<div class="jumbotron">
+  <h1>'Allo, 'Allo!</h1>
+  <p class="lead">
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br> Always
+    a pleasure scaffolding your apps.
+  </p>
+  <p>
+    <a class="btn btn-lg btn-success" ng-href="#">Splendid!</a>
+  </p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="site in sites">
+    <h4>{{site.id}}</h4>
+    <p>{{site.name}}</p>
+  </div>
+</div>
