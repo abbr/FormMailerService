@@ -38,7 +38,8 @@ var api = require('./lib/controllers/api'),
     controllers = require('./lib/controllers');
 
 // Server Routes
-app.get('/api/sites', api.sites);
+app.get('/api/sites*', api.getSites);
+app.delete('/api/sites/*', api.deleteSite);
 
 // Angular Routes
 app.get('/partials/*', controllers.partials);

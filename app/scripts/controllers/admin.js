@@ -4,4 +4,11 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
 	var sitesProm = Sites.query(function() {
 		$scope.sites = sitesProm;
 	});
+	
+	$scope.removeSite = function(siteId){
+	  Sites.remove({id:siteId});
+	  var sitesProm = Sites.query(function() {
+	    $scope.sites = sitesProm;
+	  });
+	};
 } ]);

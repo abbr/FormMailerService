@@ -6,5 +6,6 @@
   <div ng-repeat='site in sites | filter:query'>
     <h4>{{site.id}}</h4>
     <p>{{site.name}}</p>
+    <a class='btn' ng-click='removeSite(site.id)'>X</a>
   </div>
 </div>
