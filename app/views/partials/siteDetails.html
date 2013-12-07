@@ -13,6 +13,18 @@
           <td>Name</td>
           <td><input ng-model="item.name"></td>
         </tr>
+        <tr>
+          <td>Referrers:</td>
+          <td>
+            <div ng-repeat='referrer in item.referrers track by $index'>
+              <div>
+                http(s)://<input ng-model='item.referrers[$index]'/><a
+                  class='btn' ng-click='item.referrers.splice($index,1)'>X</a>
+                  <a class='btn' ng-if='$last' ng-click="item.referrers.push('')">+</a>
+              </div>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

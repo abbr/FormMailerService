@@ -1,10 +1,10 @@
 [
   {
     "id": "234491-93490",
-    "name": "foo.comx",
-    "referers": [
+    "name": "foo.com",
+    "referrers": [
       "//foo.com",
-      "//foo.com:80"
+      "x"
     ],
     "primaryAdmin": "ed",
     "otherAdmins": []
@@ -12,7 +12,7 @@
   {
     "id": "234491-93491",
     "name": "bar.com",
-    "referers": [
+    "referrers": [
       "//bar.com",
       "//bar.com:80"
     ],
