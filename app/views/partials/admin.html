@@ -4,8 +4,7 @@
 <div class="row marketing">
   Search Site: <input ng-model="query">
   <div ng-controller="ModalDemoCtrl">
-    <button class="btn" ng-click="open()">New Site</button>
-    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+    <button class="btn" ng-click="newSite()">New Site</button>
   </div>
   <div ng-repeat='site in sites | filter:query'>
     <h4>{{site.id}}</h4>

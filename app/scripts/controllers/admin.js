@@ -17,40 +17,25 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
     } ]);
 
 angular.module('formMailerServiceApp').controller('ModalDemoCtrl',
-    [ '$scope', '$modal', '$log', function($scope, $modal, $log) {
-
-      $scope.items = [ 'item1', 'item2', 'item3' ];
-
-      $scope.open = function() {
-
+    [ '$scope', '$modal', function($scope, $modal) {
+      $scope.newSite = function() {
         var modalInstance = $modal.open({
           templateUrl : 'partials/siteDetails.html',
           controller : ModalInstanceCtrl,
           resolve : {
-            items : function() {
-              return $scope.items;
+            item : function() {
+              return undefined;
             }
           }
-        });
-
-        modalInstance.result.then(function(selectedItem) {
-          $scope.selected = selectedItem;
-        }, function() {
-          $log.info('Modal dismissed at: ' + new Date());
         });
       };
     } ]);
 
-var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'items',
-    function($scope, $modalInstance, items) {
-
-      $scope.items = items;
-      $scope.selected = {
-        item : $scope.items[0]
-      };
-
+var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item',
+    function($scope, $modalInstance, item) {
+      $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
       $scope.ok = function() {
-        $modalInstance.close($scope.selected.item);
+        $modalInstance.close();
       };
 
       $scope.cancel = function() {
