@@ -19,8 +19,9 @@
             <div ng-repeat='referrer in item.referrers track by $index'>
               <div>
                 http(s)://<input ng-model='item.referrers[$index]' /><a
-                  class='btn' ng-click='item.referrers.splice($index,1)'>X</a>
-                <a class='btn' ng-if='$last'
+                  class='btn' ng-if='!$first'
+                  ng-click='item.referrers.splice($index,1)'>X</a> <a
+                  class='btn' ng-if='$last'
                   ng-click="item.referrers.push('')">+</a>
               </div>
             </div>
@@ -33,7 +34,7 @@
               ng-repeat='otherAdmin in item.otherAdmins track by $index'>
               <div>
                 <input ng-model='item.otherAdmins[$index]' /><a
-                  class='btn'
+                  class='btn' ng-if='!$first'
                   ng-click='item.otherAdmins.splice($index,1)'>X</a> <a
                   class='btn' ng-if='$last'
                   ng-click="item.otherAdmins.push('')">+</a>
