@@ -4,7 +4,7 @@
 <div class="row marketing">
   Search Site: <input ng-model="query">
   <div>
-    <button class="btn" ng-click="newSite()">New Site</button>
+    <button class="btn" ng-click="newSite()">New</button>
   </div>
   <div ng-repeat='site in sites | filter:query'>
     <h4>{{site.id}}</h4>

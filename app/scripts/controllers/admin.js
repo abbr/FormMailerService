@@ -16,7 +16,7 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
       };
 
       $scope.newSite = function() {
-        $modal.open({
+        var mi = $modal.open({
           templateUrl : 'partials/siteDetails.html',
           controller : ModalInstanceCtrl,
           resolve : {
@@ -24,6 +24,9 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
               return undefined;
             }
           }
+        });
+        mi.result.then(function(d){
+          $scope.sites.push(d);
         });
       };
 
@@ -44,13 +47,19 @@ var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites',
     function($scope, $modalInstance, item, Sites) {
       $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
       $scope.originalItem = item;
-      $scope.item = angular.copy(item);
+      $scope.item = angular.copy(item || {});
       $scope.ok = function() {
-        angular.copy($scope.item,item);
-        item.$save({
-          id : item.id
-        });
-        $modalInstance.close();
+        if (item == undefined) {
+          Sites.save($scope.item,function(v,h){
+            $modalInstance.close(v);
+          });
+        } else {
+          angular.copy($scope.item, item);
+          item.$save({
+            id : item.id
+          });
+          $modalInstance.close();
+        }
       };
 
       $scope.cancel = function() {
