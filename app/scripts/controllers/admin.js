@@ -43,8 +43,10 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
 var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites',
     function($scope, $modalInstance, item, Sites) {
       $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
-      $scope.item = item;
+      $scope.originalItem = item;
+      $scope.item = angular.copy(item);
       $scope.ok = function() {
+        angular.copy($scope.item,item);
         item.$save({
           id : item.id
         });
