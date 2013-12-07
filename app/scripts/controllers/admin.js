@@ -24,7 +24,7 @@ angular.module('formMailerServiceApp').controller('ModalDemoCtrl',
       $scope.open = function() {
 
         var modalInstance = $modal.open({
-          templateUrl : 'myModalContent.html',
+          templateUrl : 'partials/siteDetails.html',
           controller : ModalInstanceCtrl,
           resolve : {
             items : function() {
