@@ -40,11 +40,14 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
       };
     } ]);
 
-var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item',
-    function($scope, $modalInstance, item) {
+var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites',
+    function($scope, $modalInstance, item, Sites) {
       $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
       $scope.item = item;
       $scope.ok = function() {
+        item.$save({
+          id : item.id
+        });
         $modalInstance.close();
       };
 

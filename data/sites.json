@@ -1,13 +1,22 @@
-[ {
-  "id" : "234491-93490",
-  "name" : "foo.com",
-  "referers" : [ "//foo.com", "//foo.com:80" ],
-  "primaryAdmin" : "ed",
-  "otherAdmins" : []
-}, {
-  "id" : "234491-93491",
-  "name" : "bar.com",
-  "referers" : [ "//bar.com", "//bar.com:80" ],
-  "primaryAdmin" : "john",
-  "otherAdmins" : []
-} ]
+[
+  {
+    "id": "234491-93490",
+    "name": "foo.comx",
+    "referers": [
+      "//foo.com",
+      "//foo.com:80"
+    ],
+    "primaryAdmin": "ed",
+    "otherAdmins": []
+  },
+  {
+    "id": "234491-93491",
+    "name": "bar.com",
+    "referers": [
+      "//bar.com",
+      "//bar.com:80"
+    ],
+    "primaryAdmin": "john",
+    "otherAdmins": []
+  }
+]
