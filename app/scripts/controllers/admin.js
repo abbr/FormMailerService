@@ -25,7 +25,7 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
             }
           }
         });
-        mi.result.then(function(d){
+        mi.result.then(function(d) {
           $scope.sites.push(d);
         });
       };
@@ -43,14 +43,22 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
       };
     } ]);
 
-var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites',
+var ModalInstanceCtrl = [
+    '$scope',
+    '$modalInstance',
+    'item',
+    'Sites',
     function($scope, $modalInstance, item, Sites) {
       $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
       $scope.originalItem = item;
       $scope.item = angular.copy(item || {});
+      $scope.item.referrers = $scope.item.referrers && $scope.item.referrers.length > 0 ? $scope.item.referrers
+          : [ "" ];
+      $scope.item.otherAdmins = $scope.item.otherAdmins
+          && $scope.item.otherAdmins.length > 0 ? $scope.item.otherAdmins : [ "" ];
       $scope.ok = function() {
         if (item == undefined) {
-          Sites.save($scope.item,function(v,h){
+          Sites.save($scope.item, function(v, h) {
             $modalInstance.close(v);
           });
         } else {

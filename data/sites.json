@@ -3,11 +3,13 @@
     "id": "234491-93490",
     "name": "foo.com",
     "referrers": [
-      "//foo.com",
-      "x"
+      "foo.com",
+      "foo.com:80"
     ],
     "primaryAdmin": "ed",
-    "otherAdmins": []
+    "otherAdmins": [
+      ""
+    ]
   },
   {
     "id": "234491-93491",
@@ -17,6 +19,8 @@
       "//bar.com:80"
     ],
     "primaryAdmin": "john",
-    "otherAdmins": []
+    "otherAdmins": [
+      ""
+    ]
   }
 ]
