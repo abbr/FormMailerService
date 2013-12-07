@@ -40,7 +40,7 @@ var api = require('./lib/controllers/api'),
 // Server Routes
 app.get('/api/sites*', api.getSites);
 app.delete('/api/sites/*', api.deleteSite);
-app.post('/api/sites/*', api.updateSite);
+app.put('/api/sites/*', api.updateSite);
 app.post('/api/sites/?', api.createSite);
 
 // Angular Routes
