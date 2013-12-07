@@ -3,12 +3,13 @@
 </div>
 <div class="row marketing">
   Search Site: <input ng-model="query">
-  <div ng-controller="ModalDemoCtrl">
+  <div>
     <button class="btn" ng-click="newSite()">New Site</button>
   </div>
   <div ng-repeat='site in sites | filter:query'>
     <h4>{{site.id}}</h4>
     <p>{{site.name}}</p>
     <a class='btn' ng-click='removeSite(site.id)'>X</a>
+    <a class='btn' ng-click='editSite(site)'>Edit</a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formMailerServiceApp').controller('AdminCtrl',
-    [ '$scope', 'Sites', function($scope, Sites) {
+    [ '$scope', 'Sites', '$modal', function($scope, Sites, $modal) {
       var sitesProm = Sites.query(function() {
         $scope.sites = sitesProm;
       });
@@ -14,12 +14,9 @@ angular.module('formMailerServiceApp').controller('AdminCtrl',
           $scope.sites = sitesProm;
         });
       };
-    } ]);
 
-angular.module('formMailerServiceApp').controller('ModalDemoCtrl',
-    [ '$scope', '$modal', function($scope, $modal) {
       $scope.newSite = function() {
-        var modalInstance = $modal.open({
+        $modal.open({
           templateUrl : 'partials/siteDetails.html',
           controller : ModalInstanceCtrl,
           resolve : {
@@ -29,11 +26,24 @@ angular.module('formMailerServiceApp').controller('ModalDemoCtrl',
           }
         });
       };
+
+      $scope.editSite = function(site) {
+        $modal.open({
+          templateUrl : 'partials/siteDetails.html',
+          controller : ModalInstanceCtrl,
+          resolve : {
+            item : function() {
+              return site;
+            }
+          }
+        });
+      };
     } ]);
 
 var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item',
     function($scope, $modalInstance, item) {
       $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
+      $scope.item = item;
       $scope.ok = function() {
         $modalInstance.close();
       };
