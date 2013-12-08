@@ -48,7 +48,9 @@ var ModalInstanceCtrl = [
     '$modalInstance',
     'item',
     'Sites',
-    function($scope, $modalInstance, item, Sites) {
+    '$location',
+    function($scope, $modalInstance, item, Sites, $location) {
+      $scope.$location = $location;
       $scope.modalHeader = (item == undefined ? 'New Site Settings'
           : 'Modify Site Settings');
       $scope.originalItem = item;

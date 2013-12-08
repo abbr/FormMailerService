@@ -11,6 +11,12 @@
             <td>ID</td>
             <td>{{item.id}}</td>
           </tr>
+          <tr ng-if='item.id'>
+            <td>Form post URL</td>
+            <td>{{
+              $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
+              + item.id }}</td>
+          </tr>
           <tr>
             <td>Name</td>
             <td><input ng-model="item.name" required></td>
@@ -59,7 +65,7 @@
             <td><input type="checkbox" ng-model="item.isHtml"></td>
           </tr>
           <tr>
-            <td>Site URL<br />(a.k.a referrers)
+            <td>Site Host<br />(a.k.a referrers)
             </td>
             <td>
               <div
@@ -77,6 +83,18 @@
                 </div>
               </div>
             </td>
+          </tr>
+          <tr>
+            <td>Success Page</td>
+            <td><input ng-model="item.successURL"
+              tooltip='relative to site host; used for redirection upon success; leave empty if form is posted in AJAX mode.'
+              tooltip-trigger='focus'></td>
+          </tr>
+          <tr>
+            <td>Faiure Page</td>
+            <td><input ng-model="item.failureURL"
+              tooltip='relative to site host; used for redirection upon failure;  leave empty if form is posted in AJAX mode.'
+              tooltip-trigger='focus'></td>
           </tr>
           <tr>
             <td>Other Admins</td>

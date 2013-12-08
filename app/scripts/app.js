@@ -9,6 +9,9 @@ angular.module('formMailerServiceApp',
       }).when('/admin', {
         templateUrl : 'partials/admin',
         controller : 'AdminCtrl'
+      })
+      .when('/admin/help', {
+        templateUrl: 'partials/help'
       }).otherwise({
         redirectTo : '/'
       });

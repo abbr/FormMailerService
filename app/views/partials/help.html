@@ -1,0 +1,23 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><a ng-href="admin">Home</a></li>
+    <li class="active"><a ng-href="admin/help">Help</a></li>
+  </ul>
+  <h3 class="text-muted">Help</h3>
+</div>
+<div class="row marketing">
+  FormMailer service e-mails the forms filled out by your site user to
+  the addresses you configured. You design the forms at your web site's
+  end and set the post destination to the URL provided by FormMailer
+  service. FormMailer service will take care of the email part of the
+  workflow. To complete the workflow, design a success and failure
+  message page at your web site's end. The success or failure message is
+  displayed by one of two means:
+  <ul>
+    <li>If the forms are posted in AJAX mode, leave the the success
+      and failure page URL fields empty. The service uses HTTP response
+      code to indicate the outcome to your site's AJAX client.</li>
+    <li>In non-AJAX mode, supply the URL of the success and failure
+      page in configuration.</li>
+  </ul>
+</div>
