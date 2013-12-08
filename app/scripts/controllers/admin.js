@@ -54,8 +54,8 @@ var ModalInstanceCtrl = [
       $scope.item = angular.copy(item || {});
       $scope.item.referrers = $scope.item.referrers && $scope.item.referrers.length > 0 ? $scope.item.referrers
           : [ "" ];
-      $scope.item.otherAdmins = $scope.item.otherAdmins
-          && $scope.item.otherAdmins.length > 0 ? $scope.item.otherAdmins : [ "" ];
+      $scope.item.admins = $scope.item.admins
+          && $scope.item.admins.length > 0 ? $scope.item.admins : [ "" ];
       $scope.ok = function() {
         if (item == undefined) {
           Sites.save($scope.item, function(v, h) {

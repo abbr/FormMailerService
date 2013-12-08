@@ -14,11 +14,36 @@
           <td><input ng-model="item.name"></td>
         </tr>
         <tr>
-          <td>Referrers:</td>
+          <td>Mail To</td>
+          <td><input ng-model="item.mailTo"
+            tooltip='separate multiple emails by ;'
+            tooltip-trigger='focus'></td>
+        </tr>
+        <tr>
+          <td>Mail Cc</td>
+          <td><input ng-model="item.mailCc"
+            tooltip='separate multiple emails by ;'
+            tooltip-trigger='focus'></td>
+        </tr>
+        <tr>
+          <td>Mail Subject</td>
+          <td><input ng-model="item.mailSubject"></td>
+        </tr>
+        <tr>
+          <td>HTML Mail</td>
+          <td><input type="checkbox" ng-model="item.isHtml"></td>
+        </tr>
+        <tr>
+          <td>Site URL<br />(a.k.a referrers)
+          </td>
           <td>
             <div ng-repeat='referrer in item.referrers track by $index'>
               <div>
-                http(s)://<input ng-model='item.referrers[$index]' /><a
+                http(s)://<input ng-model='item.referrers[$index]'
+                  ng-if='$first'
+                  tooltip='mandatory originating form URL; one per line'
+                  tooltip-trigger='focus' /><input
+                  ng-model='item.referrers[$index]' ng-if='!$first' /><a
                   class='btn' ng-if='!$first'
                   ng-click='item.referrers.splice($index,1)'>X</a> <a
                   class='btn' ng-if='$last'
@@ -28,16 +53,18 @@
           </td>
         </tr>
         <tr>
-          <td>Other Admins:</td>
+          <td>Other Admins</td>
           <td>
-            <div
-              ng-repeat='otherAdmin in item.otherAdmins track by $index'>
+            <div ng-repeat='otherAdmin in item.admins track by $index'>
               <div>
-                <input ng-model='item.otherAdmins[$index]' /><a
+                <input ng-model='item.admins[$index]' ng-if='$first'
+                  tooltip='other people who can change this site settings; one per line'
+                  tooltip-trigger='focus' /> <input
+                  ng-model='item.admins[$index]' ng-if='!$first' /><a
                   class='btn' ng-if='!$first'
-                  ng-click='item.otherAdmins.splice($index,1)'>X</a> <a
+                  ng-click='item.admins.splice($index,1)'>X</a> <a
                   class='btn' ng-if='$last'
-                  ng-click="item.otherAdmins.push('')">+</a>
+                  ng-click="item.admins.push('')">+</a>
               </div>
             </div>
           </td>
