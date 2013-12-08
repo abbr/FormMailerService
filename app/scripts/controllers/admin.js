@@ -49,21 +49,22 @@ var ModalInstanceCtrl = [
     'item',
     'Sites',
     function($scope, $modalInstance, item, Sites) {
-      $scope.modalHeader = (item == undefined ? 'New Site' : 'Modify Site');
+      $scope.modalHeader = (item == undefined ? 'New Site Settings'
+          : 'Modify Site Settings');
       $scope.originalItem = item;
       $scope.item = angular.copy(item || {});
-      $scope.item.referrers = $scope.item.referrers && $scope.item.referrers.length > 0 ? $scope.item.referrers
-          : [ "" ];
-      $scope.item.admins = $scope.item.admins
-          && $scope.item.admins.length > 0 ? $scope.item.admins : [ "" ];
+      [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(v, i, a) {
+        $scope.item[v] = $scope.item[v] && $scope.item[v].length > 0 ? $scope.item[v]
+            : [ '' ];
+      });
       $scope.ok = function() {
         if (item == undefined) {
-          Sites.save($scope.item, function(v, h) {
+          Sites.create($scope.item, function(v, h) {
             $modalInstance.close(v);
           });
         } else {
           angular.copy($scope.item, item);
-          item.$save({
+          item.$update({
             id : item.id
           });
           $modalInstance.close();

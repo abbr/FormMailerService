@@ -1,80 +1,108 @@
-<div>
-  <div class="modal-header">
-    <h3>{{modalHeader}}</h3>
-  </div>
-  <div class="modal-body">
-    <table class="table table-striped">
-      <tbody>
-        <tr ng-if='item.id'>
-          <td>ID</td>
-          <td>{{item.id}}</td>
-        </tr>
-        <tr>
-          <td>Name</td>
-          <td><input ng-model="item.name"></td>
-        </tr>
-        <tr>
-          <td>Mail To</td>
-          <td><input ng-model="item.mailTo"
-            tooltip='separate multiple emails by ;'
-            tooltip-trigger='focus'></td>
-        </tr>
-        <tr>
-          <td>Mail Cc</td>
-          <td><input ng-model="item.mailCc"
-            tooltip='separate multiple emails by ;'
-            tooltip-trigger='focus'></td>
-        </tr>
-        <tr>
-          <td>Mail Subject</td>
-          <td><input ng-model="item.mailSubject"></td>
-        </tr>
-        <tr>
-          <td>HTML Mail</td>
-          <td><input type="checkbox" ng-model="item.isHtml"></td>
-        </tr>
-        <tr>
-          <td>Site URL<br />(a.k.a referrers)
-          </td>
-          <td>
-            <div ng-repeat='referrer in item.referrers track by $index'>
-              <div>
-                http(s)://<input ng-model='item.referrers[$index]'
-                  ng-if='$first'
-                  tooltip='mandatory originating form URL; one per line'
-                  tooltip-trigger='focus' /><input
-                  ng-model='item.referrers[$index]' ng-if='!$first' /><a
-                  class='btn' ng-if='!$first'
-                  ng-click='item.referrers.splice($index,1)'>X</a> <a
-                  class='btn' ng-if='$last'
-                  ng-click="item.referrers.push('')">+</a>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Other Admins</td>
-          <td>
-            <div ng-repeat='otherAdmin in item.admins track by $index'>
-              <div>
-                <input ng-model='item.admins[$index]' ng-if='$first'
-                  tooltip='other people who can change this site settings; one per line'
-                  tooltip-trigger='focus' /> <input
-                  ng-model='item.admins[$index]' ng-if='!$first' /><a
-                  class='btn' ng-if='!$first'
-                  ng-click='item.admins.splice($index,1)'>X</a> <a
-                  class='btn' ng-if='$last'
-                  ng-click="item.admins.push('')">+</a>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-  </div>
-</div>
 
+<form name="form" class="css-form" novalidate>
+  <div>
+    <div class="modal-header">
+      <h3>{{modalHeader}}</h3>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped">
+        <tbody>
+          <tr ng-if='item.id'>
+            <td>ID</td>
+            <td>{{item.id}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td><input ng-model="item.name" required></td>
+          </tr>
+          <tr>
+            <td>Mail To</td>
+            <td>
+              <div ng-repeat='v in item.mailTo track by $index'>
+                <div>
+                  <input type='email' ng-model='item.mailTo[$index]'
+                    ng-if='$first' tooltip='mandatory; one per line'
+                    tooltip-trigger='focus' required /><input
+                    type='email' ng-model='item.mailTo[$index]'
+                    ng-if='!$first' required /><a class='btn'
+                    ng-if='!$first'
+                    ng-click='item.mailTo.splice($index,1)'>X</a> <a
+                    class='btn' ng-if='$last'
+                    ng-click="item.mailTo.push('')">+</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Mail Cc</td>
+            <td>
+              <div ng-repeat='v in item.mailCc track by $index'>
+                <div>
+                  <input type='email' ng-model='item.mailCc[$index]'
+                    ng-if='$first' tooltip='one per line'
+                    tooltip-trigger='focus' /><input type='email'
+                    ng-model='item.mailCc[$index]' ng-if='!$first'
+                    required /><a class='btn' ng-if='!$first'
+                    ng-click='item.mailCc.splice($index,1)'>X</a> <a
+                    class='btn' ng-if='$last'
+                    ng-click="item.mailCc.push('')">+</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Mail Subject</td>
+            <td><input ng-model="item.mailSubject"></td>
+          </tr>
+          <tr>
+            <td>HTML Mail</td>
+            <td><input type="checkbox" ng-model="item.isHtml"></td>
+          </tr>
+          <tr>
+            <td>Site URL<br />(a.k.a referrers)
+            </td>
+            <td>
+              <div
+                ng-repeat='referrer in item.referrers track by $index'>
+                <div>
+                  http(s)://<input ng-model='item.referrers[$index]'
+                    ng-if='$first'
+                    tooltip='mandatory originating form URL; one per line'
+                    tooltip-trigger='focus' required /><input
+                    ng-model='item.referrers[$index]' ng-if='!$first'
+                    required /><a class='btn' ng-if='!$first'
+                    ng-click='item.referrers.splice($index,1)'>X</a> <a
+                    class='btn' ng-if='$last'
+                    ng-click="item.referrers.push('')">+</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Other Admins</td>
+            <td>
+              <div ng-repeat='otherAdmin in item.admins track by $index'>
+                <div>
+                  <input ng-model='item.admins[$index]' ng-if='$first'
+                    tooltip='other people who can change this site settings; one per line'
+                    tooltip-trigger='focus' /> <input
+                    ng-model='item.admins[$index]' ng-if='!$first'
+                    required /><a class='btn' ng-if='!$first'
+                    ng-click='item.admins.splice($index,1)'>X</a> <a
+                    class='btn' ng-if='$last'
+                    ng-click="item.admins.push('')">+</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()"
+        ng-disabled="form.$invalid">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+
+</form>

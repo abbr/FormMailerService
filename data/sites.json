@@ -7,10 +7,15 @@
       "foo.com:80"
     ],
     "admins": [
-      ""
+      "dsfa"
     ],
     "isHtml": true,
-    "mailTo": "a@b.com"
+    "mailTo": [
+      "a@b.com"
+    ],
+    "mailCc": [
+      ""
+    ]
   },
   {
     "id": "234491-93491",
@@ -23,6 +28,12 @@
       "yfsd",
       "fd"
     ],
-    "mailTo": "c@d.com"
+    "mailTo": [
+      "c@d.com"
+    ],
+    "mailCc": [
+      "e@f.com"
+    ],
+    "mailSubject": "vdsds"
   }
 ]
