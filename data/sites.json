@@ -1,39 +1,38 @@
 [
   {
-    "id": "234491-93490",
-    "name": "foo.com",
     "referrers": [
-      "foo.com",
-      "foo.com:80"
+      "localhost"
     ],
     "admins": [
-      "dsfa"
+      ""
     ],
-    "isHtml": true,
     "mailTo": [
-      "a@b.com"
+      "webmaster@foo.com"
     ],
     "mailCc": [
       ""
-    ]
+    ],
+    "name": "foo local",
+    "mailSubject": "feedback",
+    "isHtml": true,
+    "id": "3e80d1e5-210b-4f06-a7be-3b4a3f984c4f"
   },
   {
-    "id": "234491-93491",
-    "name": "bar.com",
     "referrers": [
-      "//bar.com",
-      "//bar.com:80"
+      "localhost"
     ],
     "admins": [
-      "yfsd",
-      "fd"
+      ""
     ],
     "mailTo": [
-      "c@d.com"
+      "admin@bar.com"
     ],
     "mailCc": [
-      "e@f.com"
+      ""
     ],
-    "mailSubject": "vdsds"
+    "name": "bar local",
+    "mailSubject": "contact question",
+    "isHtml": false,
+    "id": "10db19eb-7d54-4504-8523-8552511e6ee3"
   }
 ]
