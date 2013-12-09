@@ -22,6 +22,10 @@
             <td><input ng-model="item.name" required></td>
           </tr>
           <tr>
+            <td>Mail From</td>
+            <td><input type='email' ng-model="item.mailFrom" required></td>
+          </tr>
+          <tr>
             <td>Mail To</td>
             <td>
               <div ng-repeat='v in item.mailTo track by $index'>
