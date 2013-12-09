@@ -9,13 +9,16 @@
   <div ng-if='sites && sites.length > 0'>
     Search Site: <input ng-model="query">
   </div>
-  <button class="btn" ng-click="newSite()">New</button>
+  <button class="btn btn-primary" ng-click="newSite()">New</button>
   <div ng-if='!sites || sites.length == 0'>Use the button above to
     create a new form.</div>
   <div ng-repeat='site in sites | filter:query'>
-    <h4>{{site.id}}</h4>
-    <p>{{site.name}}</p>
-    <a class='btn btn-warning' ng-click='removeSite(site.id)'>X</a> <a class='btn btn-primary'
-      ng-click='editSite(site)'>Edit</a>
+    <h4>{{site.name}}</h4>
+    <p>{{
+      $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
+      + 'site/' + site.id }}</p>
+    <a class='btn btn-warning' tooltip-trigger='click'
+      tooltip='double click to delete' ng-dblclick='removeSite(site.id)'>X</a>
+    <a class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
   </div>
 </div>

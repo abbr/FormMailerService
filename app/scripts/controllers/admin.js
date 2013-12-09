@@ -1,47 +1,50 @@
 'use strict';
 
-angular.module('formMailerServiceApp').controller('AdminCtrl',
-    [ '$scope', 'Sites', '$modal', function($scope, Sites, $modal) {
-      var sitesProm = Sites.query(function() {
-        $scope.sites = sitesProm;
-      });
+angular.module('formMailerServiceApp').controller(
+    'AdminCtrl',
+    [ '$scope', 'Sites', '$modal', '$location',
+        function($scope, Sites, $modal, $location) {
+          $scope.$location = $location;
+          var sitesProm = Sites.query(function() {
+            $scope.sites = sitesProm;
+          });
 
-      $scope.removeSite = function(siteId) {
-        Sites.remove({
-          id : siteId
-        });
-        var sitesProm = Sites.query(function() {
-          $scope.sites = sitesProm;
-        });
-      };
+          $scope.removeSite = function(siteId) {
+            Sites.remove({
+              id : siteId
+            });
+            var sitesProm = Sites.query(function() {
+              $scope.sites = sitesProm;
+            });
+          };
 
-      $scope.newSite = function() {
-        var mi = $modal.open({
-          templateUrl : 'partials/siteDetails.html',
-          controller : ModalInstanceCtrl,
-          resolve : {
-            item : function() {
-              return undefined;
-            }
-          }
-        });
-        mi.result.then(function(d) {
-          $scope.sites.push(d);
-        });
-      };
+          $scope.newSite = function() {
+            var mi = $modal.open({
+              templateUrl : 'partials/siteDetails.html',
+              controller : ModalInstanceCtrl,
+              resolve : {
+                item : function() {
+                  return undefined;
+                }
+              }
+            });
+            mi.result.then(function(d) {
+              $scope.sites.push(d);
+            });
+          };
 
-      $scope.editSite = function(site) {
-        $modal.open({
-          templateUrl : 'partials/siteDetails.html',
-          controller : ModalInstanceCtrl,
-          resolve : {
-            item : function() {
-              return site;
-            }
-          }
-        });
-      };
-    } ]);
+          $scope.editSite = function(site) {
+            $modal.open({
+              templateUrl : 'partials/siteDetails.html',
+              controller : ModalInstanceCtrl,
+              resolve : {
+                item : function() {
+                  return site;
+                }
+              }
+            });
+          };
+        } ]);
 
 var ModalInstanceCtrl = [
     '$scope',

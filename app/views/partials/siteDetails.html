@@ -12,10 +12,10 @@
             <td>{{item.id}}</td>
           </tr>
           <tr ng-if='item.id'>
-            <td>Form post URL</td>
+            <td>Posting URL</td>
             <td>{{
               $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
-              + item.id }}</td>
+              + 'site/' + item.id }}</td>
           </tr>
           <tr>
             <td>Name</td>
