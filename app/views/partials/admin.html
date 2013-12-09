@@ -8,18 +8,17 @@
 <div class="row marketing">
   <button class="btn btn-primary" ng-click="newSite()">Register
     New Form</button>
-  <p>
-  <div ng-if='sites && sites.length > 0'>
-    Search: <input ng-model="query">
-  </div>
+  <p></p>
+  Search: <input ng-model="query">
   <table class="table table-striped">
     <tbody>
       <tr ng-repeat='site in sites | filter:query'>
         <td>
           <h4>{{site.name}}</h4>
-          <p>{{
+          <p>
+          <abbr title='Posting URL'>{{
             $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
-            + 'site/' + site.id }}</p> <a class='btn btn-warning'
+            + 'site/' + site.id }}</abbr></p> <a class='btn btn-warning'
           tooltip-trigger='click' tooltip='double click to delete'
           ng-dblclick='removeSite(site.id)'>X</a> <a
           class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
