@@ -45,6 +45,8 @@ app.post('/api/sites/?', api.createSite);
 
 // Angular Routes
 app.get('/partials/*', controllers.partials);
+//form posting
+app.all('/site/*', controllers.sendMail);
 app.get('/*', controllers.index);
 
 // Start server
