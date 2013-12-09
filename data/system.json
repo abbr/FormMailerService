@@ -1,3 +1,5 @@
 {
-  "SMPT_HOST" : "smtp.foo.com"
+  "SMTP" : {
+    "host" : "smtp.foo.com"
+  }
 }
