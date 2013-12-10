@@ -56,7 +56,7 @@ app.configure(function(){
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
 	app.use(express.bodyParser());
-  app.use(express.session({ secret: 'keyboard cat' }));
+  app.use(express.session({ secret: 'ffoisaiods984' }));
   app.use(passport.initialize());
   app.use(passport.session());
 	app.use(express.methodOverride());
@@ -74,6 +74,10 @@ app.get('/api/sites*', api.getSites);
 app.delete('/api/sites/*', api.deleteSite);
 app.put('/api/sites/*', api.updateSite);
 app.post('/api/sites/?', api.createSite);
+app.get('/logout*', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 // Angular Routes
 app.get('/partials/*', controllers.partials);
@@ -83,7 +87,7 @@ app.get('/*', controllers.index);
 app.post('/?',
     passport.authenticate('local', { successRedirect: '/admin',
                                      failureRedirect: '/',
-                                     failureFlash: true })
+                                     failureFlash: false })
   );
 
 // Start server
