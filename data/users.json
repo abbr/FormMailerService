@@ -1,4 +1,5 @@
 [ {
   "username" : "admin",
-  "password" : "admin"
+  "password" : "admin",
+  "superAdmin" : true
 } ]
