@@ -17,12 +17,13 @@
         <td>
           <h4>{{site.name}}</h4>
           <p>
-          <abbr title='Posting URL'>{{
-            $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
-            + 'site/' + site.id }}</abbr></p> <a class='btn btn-warning'
-          tooltip-trigger='click' tooltip='double click to delete'
-          ng-dblclick='removeSite(site.id)'>X</a> <a
-          class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
+            <abbr title='Posting URL'>{{
+              $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
+              + 'site/' + site.id }}</abbr>
+          </p> <a class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
+          <a class='btn btn-warning' tooltip-trigger='click'
+          tooltip='double click to delete'
+          ng-dblclick='removeSite(site.id)'>X</a>
         </td>
       </tr>
     </tbody>
