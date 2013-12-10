@@ -7,6 +7,34 @@ var express = require('express'),
 var app = express();
 
 
+var passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy
+, User = require('./lib/controllers/user').User;
+passport.use(new LocalStrategy(
+function(username, password, done) {
+  User.findOne(username, function (err, user) {
+    if (err) { return done(err); }
+    if (!user) {
+      return done(null, false, { message: 'Incorrect username.' });
+    }
+    if (!user.validPassword(password)) {
+      return done(null, false, { message: 'Incorrect password.' });
+    }
+    return done(null, user);
+  });
+}
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.username);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findOne(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 // Express Configuration
 app.configure('development', function(){
   app.use(require('connect-livereload')());
@@ -26,7 +54,11 @@ app.configure(function(){
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
 	app.use(express.logger('dev'));
+	app.use(express.cookieParser());
 	app.use(express.bodyParser());
+  app.use(express.session({ secret: 'keyboard cat' }));
+  app.use(passport.initialize());
+  app.use(passport.session());
 	app.use(express.methodOverride());
 
   // Router needs to be last
@@ -45,9 +77,14 @@ app.post('/api/sites/?', api.createSite);
 
 // Angular Routes
 app.get('/partials/*', controllers.partials);
-//form posting
+// form posting
 app.all('/site/*', controllers.sendMail);
 app.get('/*', controllers.index);
+app.post('/?',
+    passport.authenticate('local', { successRedirect: '/admin',
+                                     failureRedirect: '/',
+                                     failureFlash: true })
+  );
 
 // Start server
 var port = process.env.PORT || 3000;
