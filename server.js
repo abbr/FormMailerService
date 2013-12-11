@@ -74,6 +74,10 @@ app.get('/api/sites*', api.getSites);
 app.delete('/api/sites/*', api.deleteSite);
 app.put('/api/sites/*', api.updateSite);
 app.post('/api/sites/?', api.createSite);
+app.get('/api/users*', api.getUsers);
+app.delete('/api/users/*', api.deleteUser);
+app.put('/api/users/*', api.updateUser);
+app.post('/api/users/?', api.createUser);
 app.get('/logout*', function(req, res){
   req.logout();
   res.redirect('/');

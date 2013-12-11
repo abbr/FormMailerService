@@ -1,0 +1,24 @@
+
+<form name="form" class="css-form" novalidate>
+  <div>
+    <div class="modal-header">
+      <h3>{{modalHeader}}</h3>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><input ng-model="item.username" required></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()"
+        ng-disabled="form.$invalid">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+
+</form>

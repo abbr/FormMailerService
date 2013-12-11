@@ -1,1 +1,32 @@
-<p>This is the users view.</p>
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><a ng-href="admin">Home</a></li>
+    <li class="active"><a ng-href="admin/users">Users</a></li>
+    <li><a ng-href="admin/help">Help</a></li>
+    <li><a href="logout" target='_self'>Logout</a></li>
+  </ul>
+  <h3 class="text-muted">Users</h3>
+</div>
+<div class="row marketing">
+  <button class="btn btn-primary" ng-click="newUser()">New User</button>
+  <p></p>
+  <p ng-show='users.length>0'>
+    Search: <input ng-model="query">
+  </p>
+  <table class="table table-striped">
+    <tbody>
+      <tr ng-repeat='user in users | filter:query'>
+        <td>
+          <h4>{{user.username}}</h4>
+          <p>
+              {{ user.superAdmin }}
+          </p> <a class='btn btn-primary' ng-click='editUser(user)'>Edit</a>
+          <a class='btn btn-warning' tooltip-trigger='click'
+          tooltip='double click to delete'
+          ng-dblclick='removeUser(user.username)'>X</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
