@@ -58,10 +58,6 @@ var ModalInstanceCtrl = [
           : 'Modify User');
       $scope.originalItem = item;
       $scope.item = angular.copy(item || {});
-      [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(v, i, a) {
-        $scope.item[v] = $scope.item[v] && $scope.item[v].length > 0 ? $scope.item[v]
-            : [ '' ];
-      });
       $scope.ok = function() {
         if (item == undefined) {
           Users.create($scope.item, function(v, h) {
@@ -70,7 +66,7 @@ var ModalInstanceCtrl = [
         } else {
           angular.copy($scope.item, item);
           item.$update({
-            id : item.id
+            id : item.username
           });
           $modalInstance.close();
         }
