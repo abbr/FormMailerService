@@ -25,14 +25,31 @@
       ""
     ],
     "mailTo": [
-      "admin@bar.com"
+      "c@d.com"
     ],
     "mailCc": [
       ""
     ],
-    "name": "bar local",
-    "mailSubject": "contact question",
-    "isHtml": false,
-    "id": "10db19eb-7d54-4504-8523-8552511e6ee3"
+    "name": "su",
+    "mailFrom": "a@b.com",
+    "id": "1a98ed99-0bd7-4f05-bb48-f17d844bfb51"
+  },
+  {
+    "referrers": [
+      "loca"
+    ],
+    "admins": [
+      "",
+      "su"
+    ],
+    "mailTo": [
+      "a@b.com"
+    ],
+    "mailCc": [
+      ""
+    ],
+    "name": "fsdaasfd",
+    "mailFrom": "a@b.com",
+    "id": "5cec4642-14e6-4d93-94c8-e9b1dbced89c"
   }
 ]
