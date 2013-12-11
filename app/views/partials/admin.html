@@ -11,7 +11,9 @@
   <button class="btn btn-primary" ng-click="newSite()">Register
     New Form</button>
   <p></p>
-  Search: <input ng-model="query">
+  <p ng-show='sites.length>0'>
+    Search: <input ng-model="query">
+  </p>
   <table class="table table-striped">
     <tbody>
       <tr ng-repeat='site in sites | filter:query'>
