@@ -18,7 +18,7 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
   $scope.newUser = function() {
     var mi = $modal.open({
       templateUrl : 'partials/userDetails.html',
-      controller : ModalInstanceCtrl,
+      controller : UserInstanceCtrl,
       resolve : {
         item : function() {
           return undefined;
@@ -36,7 +36,7 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
   $scope.editUser = function(user) {
     $modal.open({
       templateUrl : 'partials/userDetails.html',
-      controller : ModalInstanceCtrl,
+      controller : UserInstanceCtrl,
       resolve : {
         item : function() {
           return user;
@@ -49,7 +49,7 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
   };
 } ]);
 
-var ModalInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location', 'cu', function($scope, $modalInstance, item, Users, $location, cu) {
+var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location', 'cu', function($scope, $modalInstance, item, Users, $location, cu) {
   $scope.$location = $location;
   $scope.cu = cu;
   $scope.modalHeader = (item == undefined ? 'New User' : 'Modify User');

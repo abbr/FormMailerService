@@ -21,7 +21,7 @@ angular.module('formMailerServiceApp').controller(
           $scope.newSite = function() {
             var mi = $modal.open({
               templateUrl : 'partials/siteDetails.html',
-              controller : ModalInstanceCtrl,
+              controller : SiteInstanceCtrl,
               resolve : {
                 item : function() {
                   return undefined;
@@ -36,7 +36,7 @@ angular.module('formMailerServiceApp').controller(
           $scope.editSite = function(site) {
             $modal.open({
               templateUrl : 'partials/siteDetails.html',
-              controller : ModalInstanceCtrl,
+              controller : SiteInstanceCtrl,
               resolve : {
                 item : function() {
                   return site;
@@ -46,7 +46,7 @@ angular.module('formMailerServiceApp').controller(
           };
         } ]);
 
-var ModalInstanceCtrl = [
+var SiteInstanceCtrl = [
     '$scope',
     '$modalInstance',
     'item',
