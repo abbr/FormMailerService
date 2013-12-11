@@ -4,52 +4,49 @@
       "localhost"
     ],
     "admins": [
-      ""
+      "su"
     ],
     "mailTo": [
       "webmaster@foo.com"
     ],
-    "mailCc": [
-      ""
-    ],
+    "mailCc": [],
     "name": "foo local",
     "mailSubject": "feedback",
     "isHtml": true,
-    "id": "3e80d1e5-210b-4f06-a7be-3b4a3f984c4f"
+    "id": "3e80d1e5-210b-4f06-a7be-3b4a3f984c4f",
+    "mailFrom": "a@f.com"
   },
   {
     "referrers": [
       "localhost"
     ],
-    "admins": [
-      ""
-    ],
+    "admins": [],
     "mailTo": [
       "c@d.com"
     ],
-    "mailCc": [
-      ""
-    ],
-    "name": "su",
+    "mailCc": [],
+    "name": "suuxxx",
     "mailFrom": "a@b.com",
-    "id": "1a98ed99-0bd7-4f05-bb48-f17d844bfb51"
+    "id": "1a98ed99-0bd7-4f05-bb48-f17d844bfb51",
+    "mailSubject": "ccccd"
   },
   {
     "referrers": [
-      "loca"
+      "loc"
     ],
     "admins": [
       "",
       "su"
     ],
     "mailTo": [
-      "a@b.com"
+      "2@c.com"
     ],
     "mailCc": [
       ""
     ],
-    "name": "fsdaasfd",
-    "mailFrom": "a@b.com",
-    "id": "5cec4642-14e6-4d93-94c8-e9b1dbced89c"
+    "name": "ab",
+    "mailFrom": "sdf@d.com",
+    "mailSubject": "sdf",
+    "id": "fcab6293-7ff1-4cf8-9085-ad375bd49176"
   }
 ]
