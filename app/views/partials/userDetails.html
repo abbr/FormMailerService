@@ -7,11 +7,15 @@
     <div class="modal-body">
       <table class="table table-striped">
         <tbody>
-          <tr>
+          <tr ng-if='item.username != cu.username'>
             <td>Name</td>
             <td><input ng-model="item.username" required></td>
           </tr>
           <tr>
+            <td>Password</td>
+            <td><input type="password" ng-model="item.password" required></td>
+          </tr>
+          <tr ng-if='item.username != cu.username'>
             <td>Super Admin</td>
             <td><input type="checkbox" ng-model="item.superAdmin"></td>
           </tr>
