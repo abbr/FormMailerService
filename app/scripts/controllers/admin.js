@@ -53,7 +53,7 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
   $scope.$location = $location;
   $scope.modalHeader = (item == undefined ? 'New Site Settings' : 'Modify Site Settings');
   $scope.originalItem = item;
-  $scope.item = angular.copy(item || {});
+  $scope.item = JSON.parse(JSON.stringify(item || {}));
   if ($scope.item.admins && $scope.item.admins.indexOf(cu.username) >= 0) {
     $scope.item.admins.splice($scope.item.admins.indexOf(cu.username), 1);
   }
@@ -65,16 +65,24 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
     if (!cu.superAdmin && $scope.item.admins.indexOf(cu.username) < 0) {
       $scope.item.admins.push(cu.username);
     }
+    // clear empty values
+    [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(va) {
+      $scope.item[va] = $scope.item[va].filter(function(v){
+        return v && v.trim().length>0;
+      });
+    });
+    
     if (item == undefined) {
       Sites.create($scope.item, function(v, h) {
         $modalInstance.close(v);
       });
     } else {
       angular.copy($scope.item, item);
-      item.$update({
+      Sites.update({
         id : item.id
+      },item,function(){
+        $modalInstance.close();
       });
-      $modalInstance.close();
     }
   };
 
