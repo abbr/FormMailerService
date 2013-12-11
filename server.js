@@ -78,6 +78,7 @@ app.get('/api/users*', api.getUsers);
 app.delete('/api/users/*', api.deleteUser);
 app.put('/api/users/*', api.updateUser);
 app.post('/api/users/?', api.createUser);
+app.get('/api/isSuperAdmin*', api.isSuperAdmin);
 app.get('/logout*', function(req, res){
   req.logout();
   res.redirect('/');

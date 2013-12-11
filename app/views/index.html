@@ -31,9 +31,9 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li ng-class='($location.path() == "/admin")?"active":""'><a ng-href="admin">Home</a></li>
-        <li ng-class='($location.path() == "/admin/users")?"active":""'><a ng-href="admin/users">Users</a></li>
+        <li ng-if='isSuperAdmin' ng-class='($location.path() == "/admin/users")?"active":""'><a ng-href="admin/users">Users</a></li>
         <li ng-class='($location.path() == "/admin/help")?"active":""'><a ng-href="admin/help">Help</a></li>
-        <li ng-class='($location.path() == "/admin/logout")?"active":""'><a href="logout" target='_self'>Logout</a></li>
+        <li><a href="logout" target='_self'>Logout</a></li>
       </ul>
       <h3 class="text-muted">FormMailer Service Administration Home</h3>
     </div>
@@ -90,7 +90,6 @@
   <script src="scripts/controllers/index.js"></script>
   <script src="scripts/controllers/admin.js"></script>
   <script src="scripts/services/sites.js"></script>
-  <script src="scripts/services/header.js"></script>
   <script src="scripts/controllers/users.js"></script>
   <script src="scripts/services/users.js"></script>
   <!-- endbuild -->
