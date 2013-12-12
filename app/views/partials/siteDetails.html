@@ -23,7 +23,8 @@
           </tr>
           <tr>
             <td>Mail From</td>
-            <td><input type='email' ng-model="item.mailFrom" required></td>
+            <td><input type='email' ng-model="item.mailFrom"
+              required></td>
           </tr>
           <tr>
             <td>Mail To</td>
@@ -77,7 +78,10 @@
                 <div>
                   http(s)://<input ng-model='item.referrers[$index]'
                     ng-if='$first'
-                    tooltip='mandatory originating form URL for authorization; one per line'
+                    tooltip='mandatory for the purpose of authorization; 
+                    enter host and optionally port part of the originating form URL; 
+                    list all possible access points, one per line; 
+                    example: foo.com:8080'
                     tooltip-trigger='focus' required /><input
                     ng-model='item.referrers[$index]' ng-if='!$first'
                     required /><a class='btn' ng-if='!$first'
@@ -90,13 +94,13 @@
           </tr>
           <tr>
             <td>Success Page</td>
-            <td><input ng-model="item.successURL"
+            <td><input ng-model="item.successPage"
               tooltip='relative to site host; used for redirection upon success; leave empty if form is posted in AJAX mode.'
               tooltip-trigger='focus'></td>
           </tr>
           <tr>
             <td>Faiure Page</td>
-            <td><input ng-model="item.failureURL"
+            <td><input ng-model="item.failurePage"
               tooltip='relative to site host; used for redirection upon failure;  leave empty if form is posted in AJAX mode.'
               tooltip-trigger='focus'></td>
           </tr>

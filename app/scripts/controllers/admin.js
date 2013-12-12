@@ -51,7 +51,7 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
 
 var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', function($scope, $modalInstance, item, Sites, $location, cu) {
   $scope.$location = $location;
-  $scope.modalHeader = (item == undefined ? 'New Site Settings' : 'Modify Site Settings');
+  $scope.modalHeader = (item == undefined ? 'New' : 'Modify') + ' Form Posting Settings';
   $scope.originalItem = item;
   $scope.item = JSON.parse(JSON.stringify(item || {}));
   if ($scope.item.admins && $scope.item.admins.indexOf(cu.username) >= 0) {
