@@ -23,7 +23,7 @@ io.on('connection',function(socket){
 
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy
-, User = require('./lib/controllers/user').User;
+, User = require('./lib/services/user').User;
 passport.use(new LocalStrategy(
 function(username, password, done) {
   User.findOne(username, function (err, user) {
