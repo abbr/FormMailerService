@@ -53,7 +53,6 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
   $scope.$location = $location;
   $scope.cu = cu;
   $scope.modalHeader = (item == undefined ? 'New User' : 'Modify User');
-  $scope.originalItem = item;
   $scope.item = angular.copy(item || {});
   $scope.ok = function() {
     if (item == undefined) {
@@ -61,11 +60,12 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
         $modalInstance.close(v);
       });
     } else {
-      angular.copy($scope.item, item);
-      item.$update({
+      Users.update({
         id : item.username
+      }, $scope.item, function() {
+        angular.copy($scope.item, item);
+        $modalInstance.close();
       });
-      $modalInstance.close();
     }
   };
 

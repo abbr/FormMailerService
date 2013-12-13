@@ -67,11 +67,11 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
     }
     // clear empty values
     [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(va) {
-      $scope.item[va] = $scope.item[va].filter(function(v){
-        return v && v.trim().length>0;
+      $scope.item[va] = $scope.item[va].filter(function(v) {
+        return v && v.trim().length > 0;
       });
     });
-    
+
     if (item == undefined) {
       Sites.create($scope.item, function(v, h) {
         $modalInstance.close(v);
@@ -80,7 +80,7 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
       angular.copy($scope.item, item);
       Sites.update({
         id : item.id
-      },item,function(){
+      }, item, function() {
         $modalInstance.close();
       });
     }
