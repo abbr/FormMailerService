@@ -1,5 +1,20 @@
 'use strict';
 
+Array.prototype.indexOfObject = function(property, value) {
+  for ( var i = 0, len = this.length; i < len; i++) {
+    if (this[i][property] === value)
+      return i;
+  }
+  return -1;
+};
+
+Array.prototype.splicePositiveIndex = function() {
+  if (arguments[0] < 0)
+    return null;
+  return Array.prototype.splice.apply(this, arguments);
+};
+
+
 // Module dependencies.
 var express = require('express'),
     path = require('path');
