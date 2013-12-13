@@ -111,8 +111,10 @@
                 <div>
                   <input ng-model='item.admins[$index]' ng-if='$first'
                     tooltip='other people who can change this site settings; one per line'
-                    tooltip-trigger='focus' /> <input
-                    ng-model='item.admins[$index]' ng-if='!$first'
+                    tooltip-trigger='focus'
+                    typeahead="ur.username for ur in nonSuperAdmins | filter:$viewValue | limitTo:8" />
+                  <input ng-model='item.admins[$index]' ng-if='!$first'
+                    typeahead="ur.username for ur in nonSuperAdmins | filter:$viewValue | limitTo:8"
                     required /><a class='btn' ng-if='!$first'
                     ng-click='item.admins.splice($index,1)'>X</a> <a
                     class='btn' ng-if='$last'

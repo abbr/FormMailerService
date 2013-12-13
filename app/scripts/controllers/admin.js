@@ -65,10 +65,9 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
   };
 } ]);
 
-var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', function($scope, $modalInstance, item, Sites, $location, cu) {
+var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', 'Users', function($scope, $modalInstance, item, Sites, $location, cu, Users) {
   $scope.$location = $location;
   $scope.modalHeader = (item == undefined ? 'New' : 'Modify') + ' Form Posting Settings';
-  $scope.originalItem = item;
   $scope.item = JSON.parse(JSON.stringify(item || {}));
   if ($scope.item.admins && $scope.item.admins.indexOf(cu.username) >= 0) {
     $scope.item.admins.splice($scope.item.admins.indexOf(cu.username), 1);
@@ -76,6 +75,12 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
   [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(v, i, a) {
     $scope.item[v] = $scope.item[v] && $scope.item[v].length > 0 ? $scope.item[v] : [ '' ];
   });
+  var usersProm = Users.query(function() {
+    $scope.nonSuperAdmins = usersProm.filter(function(v) {
+      return !v.superAdmin;
+    });
+  });
+
   $scope.ok = function() {
     // add current non super user to item admins
     if (!cu.superAdmin && $scope.item.admins.indexOf(cu.username) < 0) {
