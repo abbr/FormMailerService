@@ -9,7 +9,7 @@
       <tr ng-repeat='user in users | filter:query'>
         <td>
           <h4>{{user.username}}</h4>
-          <p>{{ user.superAdmin }}</p> <a class='btn btn-primary'
+          <p><abbr title='Super Admin has full privilege'>{{ user.superAdmin?'Super Admin':'' }}</abbr></p> <a class='btn btn-primary'
           ng-click='editUser(user)'>Edit</a> <a class='btn btn-warning'
           tooltip-trigger='click' tooltip='double click to delete'
           ng-dblclick='removeUser(user.username)'
