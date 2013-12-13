@@ -25,9 +25,8 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
   $scope.removeSite = function(siteId) {
     Sites.remove({
       id : siteId
-    });
-    var sitesProm = Sites.query(function() {
-      $scope.sites = sitesProm;
+    }, null, function() {
+      $scope.sites.splicePositiveIndex($scope.sites.indexOfObject('id', siteId), 1);
     });
   };
 

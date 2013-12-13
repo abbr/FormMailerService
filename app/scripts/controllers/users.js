@@ -4,14 +4,28 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
   $scope.$location = $location;
   var usersProm = Users.query(function() {
     $scope.users = usersProm;
+    $scope.socket.on('user', function(d) {
+      $scope.$apply(function() {
+        switch (d.t) {
+        case 'delete':
+          $scope.users.splicePositiveIndex($scope.users.indexOfObject('username', d.od.username), 1);
+          break;
+        case 'update':
+          angular.extend($scope.users[$scope.users.indexOfObject('username', d.od.username)], d.nd);
+          break;
+        case 'create':
+          if ($scope.users.indexOfObject('username', d.nd.username) < 0)
+            $scope.users.push(angular.extend(Object.create(Users.prototype), d.nd));
+          break;
+        }
+      });
+    });
   });
-
   $scope.removeUser = function(userId) {
     Users.remove({
       id : userId
-    });
-    var usersProm = Users.query(function() {
-      $scope.users = usersProm;
+    }, null, function() {
+      $scope.users.splicePositiveIndex($scope.users.indexOfObject('username', userId), 1);
     });
   };
 
@@ -29,7 +43,8 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
       }
     });
     mi.result.then(function(d) {
-      $scope.users.push(d);
+      if ($scope.users.indexOfObject('username', d.username) < 0)
+        $scope.users.push(d);
     });
   };
 
