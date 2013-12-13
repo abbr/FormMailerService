@@ -4,6 +4,22 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
   $scope.$location = $location;
   var sitesProm = Sites.query(function() {
     $scope.sites = sitesProm;
+    $scope.socket.on('site', function(d) {
+      $scope.$apply(function() {
+        switch (d.t) {
+        case 'delete':
+          $scope.sites.splicePositiveIndex($scope.sites.indexOfObject('id', d.od.id), 1);
+          break;
+        case 'update':
+          angular.extend($scope.sites[$scope.sites.indexOfObject('id', d.od.id)], d.nd);
+          break;
+        case 'create':
+          if ($scope.sites.indexOfObject('id', d.nd.id) < 0)
+            $scope.sites.push(angular.extend(Object.create(Sites.prototype), d.nd));
+          break;
+        }
+      });
+    });
   });
 
   $scope.removeSite = function(siteId) {
@@ -29,7 +45,8 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
       }
     });
     mi.result.then(function(d) {
-      $scope.sites.push(d);
+      if ($scope.sites.indexOfObject('id', d.id) < 0)
+        $scope.sites.push(d);
     });
   };
 
