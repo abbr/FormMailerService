@@ -81,6 +81,10 @@ var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location
     });
   });
 
+  $scope.uniqueAdminFilter = function(val) {
+    return $scope.item.admins.indexOf(val.username) < 0;
+  };
+
   $scope.ok = function() {
     // add current non super user to item admins
     if (!cu.superAdmin && $scope.item.admins.indexOf(cu.username) < 0) {
