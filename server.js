@@ -6,20 +6,7 @@ var express = require('express'),
 
 var app = express();
 var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
-var sockets=[];
-io.on('connection',function(socket){
-  sockets.push(socket);
-  socket.on('disconnect',function(){
-    sockets.splice(sockets.indexOf(socket),1);
-  });
-  socket.on('identify',function(d){
-    console.log(d);
-  });
-  socket.on('unidentify',function(d){
-    console.log('unidentify');
-  });
-});
+require('./lib/services/socket').setIo(require('socket.io').listen(server));
 
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy
