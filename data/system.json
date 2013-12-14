@@ -1,5 +1,13 @@
 {
   "SMTP" : {
     "host" : "smtp.foo.com"
-  }
+  },
+  "authenticationScheme" : [ {
+    "type" : "SSO",
+    "user-header" : "REMOTE_USER"
+  }, {
+//    "type" : "basic"
+//  }, {
+    "type" : "form"
+  } ]
 }

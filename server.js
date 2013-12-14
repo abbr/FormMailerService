@@ -23,33 +23,7 @@ var app = express();
 var server = require('http').createServer(app);
 require('./lib/services/socket').setIo(require('socket.io').listen(server));
 
-var passport = require('passport')
-, LocalStrategy = require('passport-local').Strategy
-, User = require('./lib/services/user').User;
-passport.use(new LocalStrategy(
-function(username, password, done) {
-  User.findOne(username, function (err, user) {
-    if (err) { return done(err); }
-    if (!user) {
-      return done(null, false, { message: 'Incorrect username.' });
-    }
-    if (!user.validPassword(password)) {
-      return done(null, false, { message: 'Incorrect password.' });
-    }
-    return done(null, user);
-  });
-}
-));
-
-passport.serializeUser(function(user, done) {
-  done(null, user.username);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findOne(id, function(err, user) {
-    done(err, user);
-  });
-});
+var passport = require('./lib/services/authentication');
 
 // Express Configuration
 app.configure('development', function(){
