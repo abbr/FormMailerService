@@ -78,7 +78,7 @@ app.get('/logout*', function(req, res){
 app.get('/partials/*', controllers.partials);
 // form posting
 app.all('/site/*', controllers.sendMail);
-app.get('/*', controllers.index);
+app.get('/*',passport.authenticationChain, controllers.index);
 app.post('/?',
     passport.authenticate('local', { successRedirect: '/admin',
                                      failureRedirect: '/',

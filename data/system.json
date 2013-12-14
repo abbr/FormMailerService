@@ -2,12 +2,10 @@
   "SMTP" : {
     "host" : "smtp.foo.com"
   },
-  "authenticationScheme" : [ {
+  "authenticationSchemes" : [ {
     "type" : "SSO",
-    "user-header" : "REMOTE_USER"
+    "userHeader" : "remote_user"
   }, {
-//    "type" : "basic"
-//  }, {
     "type" : "form"
   } ]
 }
