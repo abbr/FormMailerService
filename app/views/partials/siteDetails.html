@@ -110,7 +110,9 @@
               <div ng-repeat='otherAdmin in item.admins track by $index'>
                 <div>
                   <input ng-model='item.admins[$index]' ng-if='$first'
-                    tooltip='other people who can change this site settings; one per line'
+                    tooltip='other people who can change this site settings; 
+                    type something and must choose from suggestions by hitting enter;
+                    one per line'
                     tooltip-trigger='focus'
                     typeahead="ur.username for ur in nonSuperAdmins | filter:$viewValue | filter: uniqueAdminFilter | limitTo:8"
                     typeahead-editable='false' /> <input
