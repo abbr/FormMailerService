@@ -4,10 +4,9 @@
   },
   "authenticationSchemes" : [ {
     "type" : "SSO",
+    "_comment" : "supported types: SSO, form, basic. form and basic should be the last and are mutually exclusive.",
     "userHeader" : "remote_user"
   }, {
     "type" : "form"
-  }, {
-    "type" : "basic"
   } ]
 }
