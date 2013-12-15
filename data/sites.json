@@ -3,50 +3,15 @@
     "referrers": [
       "localhost"
     ],
-    "admins": [
-      "su"
-    ],
+    "admins": [],
     "mailTo": [
       "webmaster@foo.com"
     ],
     "mailCc": [],
-    "name": "foo local",
+    "name": "foo",
     "mailSubject": "feedback",
     "isHtml": true,
     "id": "3e80d1e5-210b-4f06-a7be-3b4a3f984c4f",
-    "mailFrom": "a@f.com"
-  },
-  {
-    "referrers": [
-      "localhost"
-    ],
-    "admins": [],
-    "mailTo": [
-      "c@d.com"
-    ],
-    "mailCc": [],
-    "name": "suuxxx",
-    "mailFrom": "a@b.com",
-    "id": "1a98ed99-0bd7-4f05-bb48-f17d844bfb51",
-    "mailSubject": "ccccd"
-  },
-  {
-    "referrers": [
-      "loc"
-    ],
-    "admins": [
-      "",
-      "su"
-    ],
-    "mailTo": [
-      "2@c.com"
-    ],
-    "mailCc": [
-      ""
-    ],
-    "name": "ab",
-    "mailFrom": "sdf@d.com",
-    "mailSubject": "sdf",
-    "id": "fcab6293-7ff1-4cf8-9085-ad375bd49176"
+    "mailFrom": "a@foo.com"
   }
 ]

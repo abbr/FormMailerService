@@ -19,12 +19,15 @@
           </tr>
           <tr>
             <td>Name</td>
-            <td><input ng-model="item.name" required></td>
+            <td><input ng-model="item.name"
+              tooltip='identify your form' tooltip-trigger='focus'
+              tooltip-placement='bottom' required></td>
           </tr>
           <tr>
             <td>Mail From</td>
             <td><input type='email' ng-model="item.mailFrom"
-              required></td>
+              tooltip='sender of the form email; mandatory'
+              tooltip-trigger='focus' required></td>
           </tr>
           <tr>
             <td>Mail To</td>
@@ -32,7 +35,8 @@
               <div ng-repeat='v in item.mailTo track by $index'>
                 <div>
                   <input type='email' ng-model='item.mailTo[$index]'
-                    ng-if='$first' tooltip='mandatory; one per line'
+                    ng-if='$first'
+                    tooltip='recipients of the form email; mandatory; one per line'
                     tooltip-trigger='focus' required /><input
                     type='email' ng-model='item.mailTo[$index]'
                     ng-if='!$first' required /><a class='btn'
@@ -70,7 +74,7 @@
             <td><input type="checkbox" ng-model="item.isHtml"></td>
           </tr>
           <tr>
-            <td>Site Host<br />(a.k.a referrers)
+            <td>Site Hosts<br />(a.k.a referrers)
             </td>
             <td>
               <div
@@ -80,7 +84,7 @@
                     ng-if='$first'
                     tooltip='mandatory for the purpose of authorization; 
                     enter host and optionally port part of the originating form URL; 
-                    list all possible access points, one per line; 
+                    as well list all site aliases one per line; 
                     example: foo.com:8080'
                     tooltip-trigger='focus' required /><input
                     ng-model='item.referrers[$index]' ng-if='!$first'
