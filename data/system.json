@@ -6,6 +6,8 @@
     "type" : "SSO",
     "userHeader" : "remote_user"
   }, {
+    "type" : "basic"
+  }, {
     "type" : "form"
   } ]
 }
