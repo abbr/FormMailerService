@@ -1,6 +1,6 @@
 FormMailer Service
 =================
-## About## 
+## About 
 *FormMailer* is a service application emailing simple forms such as feedbacks or contacts posted by users from a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data can be represented by name-value pair of strings. 
 
 The following steps briefly describe the workflow using *FormMailer Service*:
