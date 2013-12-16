@@ -31,13 +31,13 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li ng-if='cu.username'
-          ng-class='($location.path() == "/admin")?"active":""'><a
+          ng-class="($location.path() == '/admin')?'active':''"><a
           ng-href="admin">Home</a></li>
         <li ng-if='cu.superAdmin'
-          ng-class='($location.path() == "/admin/users")?"active":""'><a
+          ng-class="($location.path() == '/admin/users')?'active':''"><a
           ng-href="admin/users">Users</a></li>
         <li ng-if='cu.username'
-          ng-class='($location.path() == "/admin/help")?"active":""'><a
+          ng-class="($location.path() == '/admin/help')?'active':''"><a
           ng-href="admin/help">Help</a></li>
         <li ng-if='cu.username'><a href="logout" target='_self'>Logout</a></li>
       </ul>
