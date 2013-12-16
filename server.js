@@ -78,6 +78,7 @@ app.get('/logout*', function(req, res){
 app.get('/partials/*', controllers.partials);
 // form posting
 app.all('/site/*', controllers.sendMail);
+app.all('/login', controllers.index);
 app.all('/*',passport.authenticationChain, controllers.index);
 // Start server
 var port = process.env.PORT || 3000;

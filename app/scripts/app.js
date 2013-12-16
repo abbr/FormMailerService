@@ -25,6 +25,9 @@ angular.module('formMailerServiceApp', [ 'ngCookies', 'ngResource', 'ngSanitize'
   }).when('/admin/users', {
     templateUrl : 'partials/users',
     controller : 'UsersCtrl'
+  }).when('/login', {
+    templateUrl : 'partials/main',
+    controller : 'LoginCtrl'
   }).otherwise({
     redirectTo : '/'
   });
