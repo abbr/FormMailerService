@@ -28,7 +28,7 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
   <div class="container" ng-controller="IndexCtrl">
-    <div class="header">
+    <div class="header" ng-cloak>
       <ul class="nav nav-pills pull-right">
         <li ng-if='cu.username'
           ng-class="($location.path() == '/admin')?'active':''"><a
