@@ -365,11 +365,27 @@ module.exports = function(grunt) {
     grunt.task.run([ 'serve' ]);
   });
 
+  grunt.registerTask('heroku-git', function() {
+    var done = this.async();
+    var exec = require('child_process').exec;
+    exec('git --git-dir=heroku/.git --work-tree=heroku commit -a -m "updated"', function(error, stdout, stderr) {
+      grunt.log.write(stdout);
+      if (stderr)
+        grunt.log.warn(stderr);
+      exec('git --git-dir=heroku/.git --work-tree=heroku push heroku master', function(error, stdout, stderr) {
+        grunt.log.write(stdout);
+        if (stderr)
+          grunt.log.warn(stderr);
+        done();
+      });
+    });
+  });
+
   grunt.registerTask('test', [ 'clean:server', 'concurrent:test', 'autoprefixer', 'karma' ]);
 
   grunt.registerTask('build', [ 'clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'ngmin', 'copy:dist', 'cdnify', 'cssmin', 'uglify', 'rev', 'usemin' ]);
 
-  grunt.registerTask('heroku', [ 'build', 'clean:heroku', 'copy:heroku' ]);
+  grunt.registerTask('heroku', [ 'build', 'clean:heroku', 'copy:heroku', 'heroku-git' ]);
 
   grunt.registerTask('default', [ 'newer:jshint', 'test', 'build' ]);
 };
