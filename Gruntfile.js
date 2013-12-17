@@ -370,12 +370,10 @@ module.exports = function(grunt) {
     var exec = require('child_process').exec;
     exec('git --git-dir=heroku/.git --work-tree=heroku commit -a -m "updated"', function(error, stdout, stderr) {
       grunt.log.write(stdout);
-      if (stderr)
-        grunt.log.warn(stderr);
+      grunt.log.write(stderr);
       exec('git --git-dir=heroku/.git --work-tree=heroku push heroku master', function(error, stdout, stderr) {
         grunt.log.write(stdout);
-        if (stderr)
-          grunt.log.warn(stderr);
+        grunt.log.write(stderr);
         done();
       });
     });
