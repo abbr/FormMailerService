@@ -66,11 +66,11 @@ var api = require('./lib/controllers/api'), controllers = require('./lib/control
 
 // Server Routes
 app.get('/api/sites*', api.getSites);
-app.delete('/api/sites/*', api.deleteSite);
+app['delete']('/api/sites/*', api.deleteSite);
 app.put('/api/sites/*', api.updateSite);
 app.post('/api/sites/?', api.createSite);
 app.get('/api/users*', api.getUsers);
-app.delete('/api/users/*', api.deleteUser);
+app['delete']('/api/users/*', api.deleteUser);
 app.put('/api/users/*', api.updateUser);
 app.post('/api/users/?', api.createUser);
 app.get('/api/cu*', api.getCurrentUser);
