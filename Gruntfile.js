@@ -368,13 +368,17 @@ module.exports = function(grunt) {
   grunt.registerTask('heroku-git', function() {
     var done = this.async();
     var exec = require('child_process').exec;
-    exec('git --git-dir=heroku/.git --work-tree=heroku commit -a -m "updated"', function(error, stdout, stderr) {
+    exec('git --git-dir=heroku/.git --work-tree=heroku add .', function(error, stdout, stderr) {
       grunt.log.write(stdout);
       grunt.log.write(stderr);
-      exec('git --git-dir=heroku/.git --work-tree=heroku push heroku master', function(error, stdout, stderr) {
+      exec('git --git-dir=heroku/.git --work-tree=heroku commit -a -m "updated"', function(error, stdout, stderr) {
         grunt.log.write(stdout);
         grunt.log.write(stderr);
-        done();
+        exec('git --git-dir=heroku/.git --work-tree=heroku push heroku master', function(error, stdout, stderr) {
+          grunt.log.write(stdout);
+          grunt.log.write(stderr);
+          done();
+        });
       });
     });
   });
