@@ -10,7 +10,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 3. Webmaster designs the form in his web site, and uses the URL in previous step to submit the form.
 4. Webmaster also designs a success/failure page or message box to handle the completion of form submission.
 
-## Installation
+## Developer Installation
 1. Install [Ruby](http://www.ruby-lang.org/en/downloads/)
 2. Install [Compass](http://compass-style.org/install/)
 3. Install [Node.js](http://nodejs.org/)
