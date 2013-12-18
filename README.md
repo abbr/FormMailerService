@@ -40,3 +40,6 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 ## Current Limitations
 1. Clustering is not supported due to in-memory caching
 2. Admin site has been tested working on Chrome (primary), FireFox and IE 10. IE9 is having problem.
+
+## More Documentations
+See [wiki](https://github.com/abbr/FormMailerService/wiki)
