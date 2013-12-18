@@ -308,7 +308,7 @@ module.exports = function(grunt) {
     compress : {
       main : {
         options : {
-          archive : 'form-mailer-service.zip'
+          archive : 'FormMailer-service.zip'
         },
         files : [ {
           src : [ 'data/**', 'public/**', 'lib/**', 'views/**', 'package.json', 'server.js', 'README.md' ]
