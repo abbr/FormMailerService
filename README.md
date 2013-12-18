@@ -19,9 +19,11 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 6. `cd form-mailer-service` and run `node install`, followed by `bower install`
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
 8. The launcher will open http://localhost:9000. Log in using admin as user name and password.
+9. To stop, enter Ctrl-C twice.
 
 ## Configurations
-Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site. 
+1. Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site.
+2. Restart Node.
 
 ## Current Limitations
 1. Clustering is not supported due to in-memory caching
