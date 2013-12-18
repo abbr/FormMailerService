@@ -4,14 +4,23 @@ angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$loc
   $scope.socket = io.connect();
   $scope.$location = $location;
   $scope.cu = {};
-  $scope.updateCU  = function(data){
+  $scope.updateCU = function(data) {
     $scope.cu = data;
     $scope.socket.emit('identify', $scope.cu.username);
   };
-  
+
+  $scope.removeRdu = function() {
+    delete $scope.rdu;
+  };
+
   $http.get('api/cu').success(function(data) {
     $scope.updateCU(data);
   }).error(function() {
     $scope.socket.emit('unidentify', '');
+    var p = $location.path();
+    if (p != '/') {
+      $scope.rdu = p;
+      $location.path('/');
+    }
   });
 } ]);
