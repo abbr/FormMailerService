@@ -12,13 +12,14 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
-2. Downlaod and expand *FormMailer-server.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
+2. Download and expand *FormMailer-server.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
 3. Set environment variable NODE_ENV to production
-4. Go to expanded FormMailer-server directory and run `node install`
+4. Go to expanded FormMailer-service directory and run `node install`
 5. Run `node server.js` to launch application
-6. To change port, modify server.js
-7. Change SMTP or authentication settings by tweaking [Configurations](#configurations)
-8. Running Node as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to google a solution.
+6. Go to *http://localhost:3000* to access the admin site. Login as admin/admin
+7. To change port, modify server.js
+8. Change SMTP or authentication settings by tweaking [Configurations](#configurations)
+9. Running Node as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to google a solution.
 
 
 ## Developer Installation
@@ -29,7 +30,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 5. Create/Go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be download to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. 
 6. `cd form-mailer-service` and run `node install`, followed by `bower install`
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
-8. The launcher will open http://localhost:9000. Log in using admin as user name and password.
+8. The launcher will open http://localhost:9000. Log in as admin/admin.
 9. To stop, enter Ctrl-C twice.
 12. Tweak [Configurations](#configurations)
 
