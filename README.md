@@ -6,9 +6,9 @@ FormMailer Service
 The following steps briefly describe the workflow using *FormMailer Service*:
 
 1. A *FormMailer Service* administrator (a.k.a. SuperAdmin) creates an account for webmaster to grant him using the service.
-2. Webmaster registers his sites/forms with *FormMailer Service*. In return *FormMailer Service* generates an URL that webmaster uses to the post form.
+2. Webmaster registers his sites/forms with *FormMailer Service*. In return *FormMailer Service* generates an URL that webmaster uses to post the form.
 3. Webmaster designs the form in his web site, and uses the URL in previous step to submit the form.
-4. Webmaster also designs a success/failure page or message box to handle the completion of form submission.
+4. Webmaster also designs a success/failure page or message box in his site to handle the completion of form submission.
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
@@ -18,7 +18,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 5. Run `node server.js` to launch application
 6. To change port, modify server.js
 7. Change SMTP or authentication settings by tweaking [Configurations](#configurations)
-8. Running Node as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to find a solution by googling.
+8. Running Node as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to google a solution.
 
 
 ## Developer Installation
