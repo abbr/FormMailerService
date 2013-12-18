@@ -16,7 +16,8 @@ Array.prototype.splicePositiveIndex = function() {
 
 angular.module('formMailerServiceApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap' ]).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
-    templateUrl : 'partials/main'
+    templateUrl : 'partials/login',
+    controller : 'LoginCtrl'
   }).when('/admin', {
     templateUrl : 'partials/admin',
     controller : 'AdminCtrl'
@@ -25,9 +26,6 @@ angular.module('formMailerServiceApp', [ 'ngCookies', 'ngResource', 'ngSanitize'
   }).when('/admin/users', {
     templateUrl : 'partials/users',
     controller : 'UsersCtrl'
-  }).when('/login', {
-    templateUrl : 'partials/main',
-    controller : 'LoginCtrl'
   }).otherwise({
     redirectTo : '/'
   });

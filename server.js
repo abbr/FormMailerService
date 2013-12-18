@@ -74,6 +74,7 @@ app['delete']('/api/users/*', api.deleteUser);
 app.put('/api/users/*', api.updateUser);
 app.post('/api/users/?', api.createUser);
 app.get('/api/cu*', api.getCurrentUser);
+app.post('/api/login', api.login);
 app.get('/logout*', function(req, res) {
   req.logout();
   res.redirect('/');
@@ -83,7 +84,6 @@ app.get('/logout*', function(req, res) {
 app.get('/partials/*', controllers.partials);
 // form posting
 app.all('/site/*', controllers.sendMail);
-app.all('/login', controllers.index);
 app.all('/*', passport.authenticationChain, controllers.index);
 // Start server
 var port = process.env.PORT || 3000;
