@@ -304,6 +304,18 @@ module.exports = function(grunt) {
       }
     },
 
+    // make a zipfile
+    compress : {
+      main : {
+        options : {
+          archive : 'form-mailer-service.zip'
+        },
+        files : [ {
+          src : [ 'data/**', 'public/**', 'lib/**', 'views/**', 'package.json', 'server.js', 'README.md' ]
+        } ]
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent : {
       server : [ 'compass:server', 'copy:styles' ],
@@ -385,7 +397,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [ 'clean:server', 'concurrent:test', 'autoprefixer', 'karma' ]);
 
-  grunt.registerTask('build', [ 'clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'ngmin', 'copy:dist', 'cdnify', 'cssmin', 'uglify', 'rev', 'usemin' ]);
+  grunt.registerTask('build', [ 'clean:dist', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'ngmin', 'copy:dist', 'cdnify', 'cssmin', 'uglify', 'rev', 'usemin', 'compress:main' ]);
 
   grunt.registerTask('heroku', [ 'build', 'clean:heroku', 'copy:heroku', 'heroku-git' ]);
 

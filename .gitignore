@@ -6,3 +6,4 @@ app/bower_components
 heroku
 /views
 .settings
+/form-mailer-service.zip
