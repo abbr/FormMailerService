@@ -38,8 +38,5 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 1. Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site.
 2. Restart Node.
 
-## Current Limitations
-1. Clustering is not supported due to in-memory caching
-
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
