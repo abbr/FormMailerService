@@ -108,6 +108,18 @@
               tooltip='relative to site host; used for redirection upon failure;  leave empty if form is posted in AJAX mode.'
               tooltip-trigger='focus'></td>
           </tr>
+          <tr style='white-space: nowrap;'>
+            <td>Enable <a href='http://www.google.com/recaptcha'
+              target='_blank' tabindex='-1' title='open in a new window'>reCAPTCHA</a>
+            </td>
+            <td><input type="checkbox" ng-model="item.useReCaptcha"></td>
+          </tr>
+          <tr ng-if='item.useReCaptcha'>
+            <td>reCAPTCHA Private Key</td>
+            <td><input ng-model="item.reCaptchaPriKey"
+              tooltip='mandatory; if your site has aliases, register a global key'
+              tooltip-trigger='focus' required></td>
+          </tr>
           <tr>
             <td>Other Admins</td>
             <td>
