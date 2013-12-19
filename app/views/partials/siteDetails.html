@@ -99,13 +99,16 @@
           <tr>
             <td>Success Page</td>
             <td><input ng-model="item.successPage"
-              tooltip='relative to site host; used for redirection upon success; leave empty if form is posted in AJAX mode.'
+              tooltip='relative to site host; used for redirection upon success; leave empty if form is posted in AJAX mode'
               tooltip-trigger='focus'></td>
           </tr>
           <tr>
             <td>Faiure Page</td>
             <td><input ng-model="item.failurePage"
-              tooltip='relative to site host; used for redirection upon failure;  leave empty if form is posted in AJAX mode.'
+              tooltip='relative to site host; used for redirection upon failure;  
+              leave empty if form is posted in AJAX mode;
+              use {reason} as place holder to receive error message;
+              example: /error?reason={reason}'
               tooltip-trigger='focus'></td>
           </tr>
           <tr style='white-space: nowrap;'>
