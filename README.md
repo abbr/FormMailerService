@@ -1,12 +1,12 @@
 FormMailer Service
 =================
 ## About 
-*FormMailer* is a service application emailing simple forms such as feedbacks or contacts posted by users from a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data can be represented by name-value pair of strings. 
+*FormMailer* is a service application emailing simple forms posted by users of a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data that can be represented in terms of name-value pairs of strings such as typical feedback or contact forms.
 
 The following steps briefly describe the workflow using *FormMailer Service*:
 
-1. A *FormMailer Service* administrator (a.k.a. SuperAdmin) creates an account for webmaster to grant him using the service.
-2. Webmaster registers his sites/forms with *FormMailer Service*. In return *FormMailer Service* generates an URL that webmaster uses to post the form.
+1. A *FormMailer Service* administrator (a.k.a. SuperAdmin) creates an account for webmaster to grant using the service.
+2. Webmaster registers his sites/forms with *FormMailer Service*. In return *FormMailer Service* generates a URL that webmaster uses to post the form.
 3. Webmaster designs the form in his web site, and uses the URL in previous step to submit the form.
 4. Webmaster also designs a success/failure page or message box in his site to handle the completion of form submission.
 
@@ -32,7 +32,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
 8. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
 9. To stop, enter Ctrl-C twice.
-12. Tweak [Configurations](#configurations)
+10. Tweak [Configurations](#configurations)
 
 ## Configurations
 1. Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site.
