@@ -12,7 +12,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
-2. Download and expand *FormMailer-server.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
+2. Download and expand *FormMailer-service.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
 3. Set environment variable NODE_ENV to production
 4. Go to expanded FormMailer-service directory and run `node install`
 5. Run `node server.js` to launch application
@@ -27,8 +27,8 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 2. Install [Compass](http://compass-style.org/install/)
 3. Install [Node.js](http://nodejs.org/)
 4. Run `npm install -g yo` to intall [Yeoman](http://yeoman.io/)
-5. Create/Go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be download to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. 
-6. `cd form-mailer-service` and run `node install`, followed by `bower install`
+5. Clone git repo from [https://github.com/abbr/FormMailerService.git](https://github.com/abbr/FormMailerService.git). Alternatively, create/go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be downloaded to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. Alternatively, 
+6. Go to application root and run `node install`, followed by `bower install`
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
 8. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
 9. To stop, enter Ctrl-C twice.
