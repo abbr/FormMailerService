@@ -14,7 +14,7 @@ Array.prototype.splicePositiveIndex = function() {
   return Array.prototype.splice.apply(this, arguments);
 };
 
-angular.module('formMailerServiceApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap' ]).config(function($routeProvider, $locationProvider) {
+angular.module('formMailerServiceApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ui.validate' ]).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
     templateUrl : 'partials/login',
     controller : 'LoginCtrl'
