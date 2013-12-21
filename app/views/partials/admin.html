@@ -11,9 +11,10 @@
         <td>
           <h4>{{site.name}}</h4>
           <p>
-            <abbr title='Posting URL'>{{
+            <abbr id='{{site.id}}' title='posting URL'>{{
               $location.absUrl().substr(0,$location.absUrl().lastIndexOf('/')+1)
-              + 'site/' + site.id }}</abbr>
+              + 'site/' + site.id }}</abbr> <span class='icon-download-alt'
+              copy-it data-clipboard-target='{{site.id}}'></span>
           </p> <a class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
           <a class='btn btn-warning' tooltip-trigger='click'
           tooltip='double click to delete'

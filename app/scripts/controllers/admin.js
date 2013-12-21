@@ -63,7 +63,42 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
       }
     });
   };
+
+  $scope.clip = new ZeroClipboard(null, {
+    moviePath : "/bower_components/zeroclipboard/ZeroClipboard.swf"
+  });
+
+  $scope.clip.on("load", function(client) {
+    client.on("complete", function(client, args) {
+      $(this).tooltip("destroy");
+      $(this).tooltip({
+        title : 'copied'
+      });
+      $(this).tooltip("show");
+    });
+
+  });
+
+  $scope.clip.on('mouseover', function(client, args) {
+    $(this).tooltip({
+      title : 'copy URL to clipboard'
+    });
+    $(this).tooltip("show");
+  });
+
+  $scope.clip.on('mouseout', function(client, args) {
+    $(this).tooltip('destroy');
+  });
+
 } ]);
+
+angular.module('formMailerServiceApp').directive("copyIt", function() {
+  return function(scope, element, attrs) {
+    element.ready(function() {
+      scope.clip.glue(element);
+    });
+  };
+});
 
 var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', 'Users', function($scope, $modalInstance, item, Sites, $location, cu, Users) {
   $scope.$location = $location;
