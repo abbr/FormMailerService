@@ -4,7 +4,7 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
   $scope.$location = $location;
   $scope.cu = cu;
   $scope.userArr = userArr;
-  $scope.modalHeader = (item === undefined ? 'New User' : 'Modify User');
+  $scope.modalHeader = (item === undefined ? 'New User' : (cu.username === item.username ? 'Set Password' : 'Modify User'));
   $scope.item = angular.copy(item || {});
   $scope.ok = function() {
     if (item === undefined) {
@@ -28,32 +28,13 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
   };
 
   $scope.unique = function(value) {
-    return $scope.userArr.indexOfObject('username', value) < 0;
+    return $scope.userArr.indexOfObject('username', value) < 0 || item.username === value;
   };
 
 } ];
 
 angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'Users', '$modal', '$location', function($scope, Users, $modal, $location) {
   $scope.$location = $location;
-  var usersProm = Users.query(function() {
-    $scope.users = usersProm;
-    $scope.socket.on('user', function(d) {
-      $scope.$apply(function() {
-        switch (d.t) {
-        case 'delete':
-          $scope.users.splicePositiveIndex($scope.users.indexOfObject('username', d.od.username), 1);
-          break;
-        case 'update':
-          angular.extend($scope.users[$scope.users.indexOfObject('username', d.od.username)], d.nd);
-          break;
-        case 'create':
-          if ($scope.users.indexOfObject('username', d.nd.username) < 0)
-            $scope.users.push(angular.extend(Object.create(Users.prototype), d.nd));
-          break;
-        }
-      });
-    });
-  });
   $scope.removeUser = function(userId) {
     Users.remove({
       id : userId
