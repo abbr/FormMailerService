@@ -1,6 +1,57 @@
 'use strict';
 
-angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Sites', '$modal', '$location', function($scope, Sites, $modal, $location) {
+var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', 'Users', function($scope, $modalInstance, item, Sites, $location, cu, Users) {
+  $scope.$location = $location;
+  $scope.modalHeader = (item === undefined ? 'New' : 'Modify') + ' Form Posting Settings';
+  $scope.item = JSON.parse(JSON.stringify(item || {}));
+  if ($scope.item.admins && $scope.item.admins.indexOf(cu.username) >= 0) {
+    $scope.item.admins.splice($scope.item.admins.indexOf(cu.username), 1);
+  }
+  [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(v) {
+    $scope.item[v] = $scope.item[v] && $scope.item[v].length > 0 ? $scope.item[v] : [ '' ];
+  });
+  var usersProm = Users.query(function() {
+    $scope.nonSuperAdmins = usersProm.filter(function(v) {
+      return !v.superAdmin;
+    });
+  });
+
+  $scope.uniqueAdminFilter = function(val) {
+    return $scope.item.admins.indexOf(val.username) < 0;
+  };
+
+  $scope.ok = function() {
+    // add current non super user to item admins
+    if (!cu.superAdmin && $scope.item.admins.indexOf(cu.username) < 0) {
+      $scope.item.admins.push(cu.username);
+    }
+    // clear empty values
+    [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(va) {
+      $scope.item[va] = $scope.item[va].filter(function(v) {
+        return v && v.trim().length > 0;
+      });
+    });
+
+    if (item === undefined) {
+      Sites.create($scope.item, function(v) {
+        $modalInstance.close(v);
+      });
+    } else {
+      angular.copy($scope.item, item);
+      Sites.update({
+        id : item.id
+      }, item, function() {
+        $modalInstance.close();
+      });
+    }
+  };
+
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
+} ];
+
+angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Sites', '$modal', '$location', '$window', function($scope, Sites, $modal, $location, $window) {
   $scope.$location = $location;
   var sitesProm = Sites.query(function() {
     $scope.sites = sitesProm;
@@ -64,89 +115,38 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
     });
   };
 
-  $scope.clip = new ZeroClipboard(null, {
-    moviePath : "/bower_components/zeroclipboard/ZeroClipboard.swf"
+  $scope.clip = new $window.ZeroClipboard(null, {
+    moviePath : '/bower_components/zeroclipboard/ZeroClipboard.swf'
   });
 
-  $scope.clip.on("load", function(client) {
-    client.on("complete", function(client, args) {
-      $(this).tooltip("destroy");
-      $(this).tooltip({
+  $scope.clip.on('load', function(client) {
+    client.on('complete', function() {
+      $window.$(this).tooltip('destroy');
+      $window.$(this).tooltip({
         title : 'copied'
       });
-      $(this).tooltip("show");
+      $window.$(this).tooltip('show');
     });
 
   });
 
-  $scope.clip.on('mouseover', function(client, args) {
-    $(this).tooltip({
+  $scope.clip.on('mouseover', function() {
+    $window.$(this).tooltip({
       title : 'copy URL to clipboard'
     });
-    $(this).tooltip("show");
+    $window.$(this).tooltip('show');
   });
 
-  $scope.clip.on('mouseout', function(client, args) {
-    $(this).tooltip('destroy');
+  $scope.clip.on('mouseout', function() {
+    $window.$(this).tooltip('destroy');
   });
 
 } ]);
 
-angular.module('formMailerServiceApp').directive("copyIt", function() {
-  return function(scope, element, attrs) {
+angular.module('formMailerServiceApp').directive('copyIt', function() {
+  return function(scope, element) {
     element.ready(function() {
       scope.clip.glue(element);
     });
   };
 });
-
-var SiteInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Sites', '$location', 'cu', 'Users', function($scope, $modalInstance, item, Sites, $location, cu, Users) {
-  $scope.$location = $location;
-  $scope.modalHeader = (item == undefined ? 'New' : 'Modify') + ' Form Posting Settings';
-  $scope.item = JSON.parse(JSON.stringify(item || {}));
-  if ($scope.item.admins && $scope.item.admins.indexOf(cu.username) >= 0) {
-    $scope.item.admins.splice($scope.item.admins.indexOf(cu.username), 1);
-  }
-  [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(v, i, a) {
-    $scope.item[v] = $scope.item[v] && $scope.item[v].length > 0 ? $scope.item[v] : [ '' ];
-  });
-  var usersProm = Users.query(function() {
-    $scope.nonSuperAdmins = usersProm.filter(function(v) {
-      return !v.superAdmin;
-    });
-  });
-
-  $scope.uniqueAdminFilter = function(val) {
-    return $scope.item.admins.indexOf(val.username) < 0;
-  };
-
-  $scope.ok = function() {
-    // add current non super user to item admins
-    if (!cu.superAdmin && $scope.item.admins.indexOf(cu.username) < 0) {
-      $scope.item.admins.push(cu.username);
-    }
-    // clear empty values
-    [ 'referrers', 'admins', 'mailTo', 'mailCc' ].forEach(function(va) {
-      $scope.item[va] = $scope.item[va].filter(function(v) {
-        return v && v.trim().length > 0;
-      });
-    });
-
-    if (item == undefined) {
-      Sites.create($scope.item, function(v, h) {
-        $modalInstance.close(v);
-      });
-    } else {
-      angular.copy($scope.item, item);
-      Sites.update({
-        id : item.id
-      }, item, function() {
-        $modalInstance.close();
-      });
-    }
-  };
-
-  $scope.cancel = function() {
-    $modalInstance.dismiss('cancel');
-  };
-} ];

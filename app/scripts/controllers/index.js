@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$location', '$http', function($scope, $location, $http) {
-  $scope.socket = io.connect();
+angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$location', '$http', '$window', function($scope, $location, $http, $window) {
+  $scope.socket = $window.io.connect();
   $scope.$location = $location;
   $scope.cu = {};
   $scope.updateCU = function(data) {
@@ -18,7 +18,7 @@ angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$loc
   }).error(function() {
     $scope.socket.emit('unidentify', '');
     var p = $location.path();
-    if (p != '/') {
+    if (p !== '/') {
       $scope.rdu = p;
       $location.path('/');
     }
