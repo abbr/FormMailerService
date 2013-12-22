@@ -65,8 +65,9 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
           angular.extend($scope.sites[$scope.sites.indexOfObject('id', d.od.id)], d.nd);
           break;
         case 'create':
-          if ($scope.sites.indexOfObject('id', d.nd.id) < 0)
+          if ($scope.sites.indexOfObject('id', d.nd.id) < 0) {
             $scope.sites.push(angular.extend(Object.create(Sites.prototype), d.nd));
+          }
           break;
         }
       });
@@ -95,8 +96,9 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
       }
     });
     mi.result.then(function(d) {
-      if ($scope.sites.indexOfObject('id', d.id) < 0)
+      if ($scope.sites.indexOfObject('id', d.id) < 0) {
         $scope.sites.push(d);
+      }
     });
   };
 

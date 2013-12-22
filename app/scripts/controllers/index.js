@@ -19,8 +19,9 @@ angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$loc
             angular.extend($scope.users[$scope.users.indexOfObject('username', d.od.username)], d.nd);
             break;
           case 'create':
-            if ($scope.users.indexOfObject('username', d.nd.username) < 0)
+            if ($scope.users.indexOfObject('username', d.nd.username) < 0) {
               $scope.users.push(angular.extend(Object.create(Users.prototype), d.nd));
+            }
             break;
           }
         });

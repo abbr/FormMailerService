@@ -60,8 +60,9 @@ angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'User
       }
     });
     mi.result.then(function(d) {
-      if ($scope.users.indexOfObject('username', d.username) < 0)
+      if ($scope.users.indexOfObject('username', d.username) < 0) {
         $scope.users.push(d);
+      }
     });
   };
 
