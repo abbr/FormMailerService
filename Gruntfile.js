@@ -279,8 +279,10 @@ module.exports = function(grunt) {
             if (fp.indexOf('users.html') < 0)
               return c;
             return c.replace("ng-click=\"editUser(user)\"", "ng-click=\"editUser(user)\" ng-if=\"user.username != 'admin'\"").replace("ng-if=\"cu.username != user.username", "ng-if=\"cu.username != user.username && user.username != 'admin'");
-          }
+          },
+          processContentExclude : [ '**', '!views/**' ]
         },
+
         files : [ {
           expand : true,
           dot : true,
