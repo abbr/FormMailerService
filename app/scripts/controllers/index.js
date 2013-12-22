@@ -46,7 +46,7 @@ angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$loc
   $scope.changePassword = function() {
     $modal.open({
       templateUrl : 'partials/userDetails.html',
-      controller : UserInstanceCtrl,
+      controller : $window.UserInstanceCtrl,
       resolve : {
         item : function() {
           return {
@@ -62,5 +62,5 @@ angular.module('formMailerServiceApp').controller('IndexCtrl', [ '$scope', '$loc
         }
       }
     });
-  }
+  };
 } ]);
