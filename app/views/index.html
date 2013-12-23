@@ -39,7 +39,7 @@
         <li ng-if='cu.username'
           ng-class="($location.path() == '/admin/help')?'active':''"><a
           ng-href="admin/help">Help</a></li>
-        <li ng-if='cu.username && !cu.superAdmin'><a
+        <li ng-if="cu.authMethod=='form' && cu.username && !cu.superAdmin"><a
           ng-click='changePassword()' style='cursor: pointer'>Set
             Password</a></li>
         <li ng-if="cu.authMethod=='form'"><a href="/logout"

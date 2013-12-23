@@ -16,6 +16,7 @@
               + 'site/' + site.id }}</abbr> <span class='icon-download-alt'
               copy-it data-clipboard-target='{{site.id}}'></span>
           </p> <a class='btn btn-primary' ng-click='editSite(site)'>Edit</a>
+          <a class='btn btn-info' ng-click='cloneSite(site)'>Clone</a>
           <a class='btn btn-warning' tooltip-trigger='click'
           tooltip='double click to delete'
           ng-dblclick='removeSite(site.id)'>X</a>

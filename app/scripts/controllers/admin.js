@@ -82,6 +82,14 @@ angular.module('formMailerServiceApp').controller('AdminCtrl', [ '$scope', 'Site
     });
   };
 
+  $scope.cloneSite = function(site) {
+    Sites.create(site, function(v) {
+      if ($scope.sites.indexOfObject('id', v.id) < 0) {
+        $scope.sites.push(v);
+      }
+    });
+  };
+
   $scope.newSite = function() {
     var mi = $modal.open({
       templateUrl : 'partials/siteDetails.html',
