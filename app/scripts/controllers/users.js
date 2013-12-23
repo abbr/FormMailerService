@@ -28,7 +28,7 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
   };
 
   $scope.unique = function(value) {
-    return $scope.userArr.indexOfObject('username', value) < 0 || item.username === value;
+    return $scope.userArr.indexOfObject('username', value) < 0 || (item && item.username === value);
   };
 
 } ];
