@@ -41,3 +41,5 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
+
+[![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService)
