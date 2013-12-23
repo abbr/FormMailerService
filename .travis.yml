@@ -6,7 +6,6 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - gem update --system
   - gem install compass
-  - gem install sass
   - npm install -g bower grunt-cli
 install:
   - npm install
