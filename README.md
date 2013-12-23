@@ -25,15 +25,14 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 ## Developer Installation
 1. Install [Ruby](http://www.ruby-lang.org/en/downloads/)
 2. Install [Compass](http://compass-style.org/install/) by running `gem update --system;gem install compass`
-3. Install SASS by running `gem install sass`
-4. Install [Node.js](http://nodejs.org/)
-5. Run `npm install -g yo` to intall [Yeoman](http://yeoman.io/)
-6. Clone git repo from [https://github.com/abbr/FormMailerService.git](https://github.com/abbr/FormMailerService.git). Alternatively, create/go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be downloaded to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. Alternatively, 
-7. Go to application root and run `node install`, followed by `bower install`
-8. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
-9. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
-10. To stop, enter Ctrl-C twice.
-11. Tweak [Configurations](#configurations)
+3. Install [Node.js](http://nodejs.org/)
+4. Run `npm install -g yo` to intall [Yeoman](http://yeoman.io/)
+5. Clone git repo from [https://github.com/abbr/FormMailerService.git](https://github.com/abbr/FormMailerService.git). Alternatively, create/go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be downloaded to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. Alternatively, 
+6. Go to application root and run `node install`, followed by `bower install`
+7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
+8. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
+9. To stop, enter Ctrl-C twice.
+10. Tweak [Configurations](#configurations)
 
 ## Configurations
 1. Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site.
