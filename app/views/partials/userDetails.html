@@ -18,7 +18,7 @@
           <tr>
             <td>Password</td>
             <td>
-              <input type="password" ng-model="item.password" required>
+              <input type="password" ng-model="item.password" required ng-minlength='6'>
             </td>
           </tr>
           <tr ng-if='item.username != cu.username'>
