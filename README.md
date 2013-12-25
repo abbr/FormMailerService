@@ -13,7 +13,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
 2. Download and expand *FormMailer-service.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
-3. Set environment variable NODE_ENV to production
+3. Set environment variable *NODE_ENV* to production
 4. Go to expanded FormMailer-service directory and run `npm install`
 5. Run `node server.js` to launch application
 6. Go to [http://localhost:3000](http://localhost:3000) to access the admin site. Login as admin/admin
@@ -35,8 +35,14 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 10. Tweak [Configurations](#configurations)
 
 ## Configurations
-1. Edit */data/system.json* to change SMTP server and authentication schemes for *FormMailer Service Administration* site.
+1. Edit */data/system.json* to change 
+	* SMTP server 
+	* authentication schemes for *FormMailer Service Administration* site.
+	* data repository
 2. Restart Node.
+
+## Current Limitations
+1. Clustering is not supported due to in-memory caching. 
 
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
