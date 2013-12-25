@@ -1,12 +1,21 @@
 {
-  "SMTP" : {
-    "host" : "smtp.foo.com"
+  "SMTP":{
+    "host":"smtp.foo.com"
   },
-  "authenticationSchemes" : [ {
-    "type" : "SSO",
-    "_comment" : "supported types: SSO, form, basic. form and basic should be the last and are mutually exclusive.",
-    "userHeader" : "remote_user"
-  }, {
-    "type" : "form"
-  } ]
+  "authenticationSchemes":[
+    {
+      "type":"SSO",
+      "_comment":"supported types: SSO, form, basic. form and basic should be the last and are mutually exclusive.",
+      "userHeader":"remote_user"
+    },
+    {
+      "type":"form"
+    }
+    
+  ],
+  "repository":{
+    "type":"file",
+    "_comment":"supported types: file, mongodb",
+    "connection_string":"mongodb://localhost/formmailerservice"
+  }
 }

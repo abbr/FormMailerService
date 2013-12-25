@@ -14,7 +14,8 @@
     "passport" : "~0.1.0",
     "passport-reverseproxy" : "~0.1.0",
     "passport-http" : "~0.2.0",
-    "socket.io" : "~0.9.0"
+    "socket.io" : "~0.9.0",
+    "mongoose": "~3.8.0"
   },
   "devDependencies" : {
     "grunt" : "~0.4.1",
@@ -58,6 +59,6 @@
     "type" : "git",
     "url" : "https://github.com/abbr/FormMailerService.git"
   },
-  "homepage" : "https://github.com/abbr/FormMailerService/wiki",
+  "homepage" : "https://github.com/abbr/FormMailerService",
   "keywords" : [ "formmail", "mailform" ]
 }
