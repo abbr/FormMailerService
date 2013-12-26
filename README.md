@@ -1,4 +1,4 @@
-FormMailer Service [![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+FormMailer Service [![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService) [![NPM version](https://badge.fury.io/js/form-mailer-service.png)](http://badge.fury.io/js/form-mailer-service) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 =================
 ## About 
 *FormMailer* is a service application emailing simple forms posted by users of a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data that can be represented in terms of name-value pairs of strings such as typical feedback or contact forms.
@@ -9,6 +9,18 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 2. Webmaster registers his sites/forms with *FormMailer Service*. In return *FormMailer Service* generates a URL that webmaster uses to post the form.
 3. Webmaster designs the form in his web site, and uses the URL in previous step to submit the form.
 4. Webmaster also designs a success/failure page or message box in his site to handle the completion of form submission.
+
+## Features
+Form handling:
+
+1. Both x-domain Ajax and plain HTML \<form\> submission
+2. [reCAPTCHA](http://www.google.com/recaptcha)
+3. multiple email transports: SMTP, Amazon SES, Sendmail and Direct
+
+Administration:
+
+1. Supports SSO, basic and login form based authentication
+2. multiple administrators per site form
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
@@ -35,11 +47,12 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 10. Change [Configurations](#configurations)
 
 ## Configurations
-1. Edit */data/system.json* to change 
-	* SMTP server 
-	* authentication schemes for *FormMailer Service Administration* site.
-	* data repository
-2. Restart Node.
+Following configs are defined in */data/system.json*:
+
+1. *emailTransport* defines email settings. *FormMailer* depends on [Nodemailer](https://github.com/andris9/Nodemailer). For supported email transports and corresponding settings, see [Nodemailer Readme](https://github.com/andris9/Nodemailer#possible-transport-methods). SMTP is the only transport tested. 
+2. *authenticationSchemes* defines authentication schemes for *FormMailer Service Administration* site. Supported authentication schemes are SSO (a.k.a reverse-proxy), form and basic. In SSO authentication scheme, the HTTP header name containing authenticated user name is defined in property *userHeader*. 
+3. *repository* defines data repository types. Supported *types* are *file* and *mongodb*. For *mongodb*, supply [connection string](http://docs.mongodb.org/manual/reference/connection-string/) in property *connection_string* and [connection options](http://mongoosejs.com/docs/connections.html#options) in *connection_options*.
+For changes to take effect, restart Node.
 
 ## Current Limitations
 1. Clustering is not supported due to in-memory caching. 
