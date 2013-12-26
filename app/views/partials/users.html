@@ -7,13 +7,26 @@
   <table class="table table-striped">
     <tbody>
       <tr ng-repeat='user in users | filter:query'>
-        <td>
-          <h4>{{user.username}}</h4>
-          <p><abbr title='Super Admin has full privilege'>{{ user.superAdmin?'Super Admin':'' }}</abbr></p> <a class='btn btn-primary'
-          ng-click='editUser(user)'>Edit</a> <a class='btn btn-warning'
-          tooltip-trigger='click' tooltip='double click to delete'
-          ng-dblclick='removeUser(user.username)'
-          ng-if='cu.username != user.username'>X</a>
+        <td
+          ng-swipe-right="showActions = (cu.username != user.username)">
+          <div class='leftContent'>
+            <h4>{{user.username}}</h4>
+            <p>
+              <abbr title='Super Admin has full privilege'>{{
+                user.superAdmin?'Super Admin':'' }}</abbr>
+            </p>
+            <button class='btn btn-primary' ng-click='editUser(user)'>Edit</button>
+            <button class='btn btn-warning'
+              ng-show='cu.username != user.username'
+              ng-click="showActions = !showActions">X</button>
+          </div>
+          <div ng-show="showActions" class='rightContent'>
+            <button class='btn btn-danger'
+              ng-click="removeUser(user.username)"
+              style='float: right; margin-left: 5px'>Delete</button> <button
+              class='btn' ng-click="showActions = false"
+              style='float: right;'>Cancel</button>
+          </div>
         </td>
       </tr>
     </tbody>
