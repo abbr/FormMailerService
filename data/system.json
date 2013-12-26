@@ -1,7 +1,10 @@
 {
-  "SMTP":{
-    "host":"smtp.foo.com"
-  },
+  "emailTransport":{
+    "SMTP":{
+      "host":"smtp.foo.com"
+    }
+  }
+  ,
   "authenticationSchemes":[
     {
       "type":"SSO",
@@ -11,7 +14,6 @@
     {
       "type":"form"
     }
-    
   ],
   "repository":{
     "type":"file",
