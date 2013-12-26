@@ -1,4 +1,4 @@
-FormMailer Service
+FormMailer Service [![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 =================
 ## About 
 *FormMailer* is a service application emailing simple forms posted by users of a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data that can be represented in terms of name-value pairs of strings such as typical feedback or contact forms.
@@ -18,7 +18,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 5. Run `node server.js` to launch application
 6. Go to [http://localhost:3000](http://localhost:3000) to access the admin site. Login as admin/admin
 7. To change port, modify server.js
-8. Change SMTP or authentication settings by tweaking [Configurations](#configurations)
+8. Change [Configurations](#configurations)
 9. Running Node as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to google a solution.
 
 
@@ -32,7 +32,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
 8. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
 9. To stop, enter Ctrl-C twice.
-10. Tweak [Configurations](#configurations)
+10. Change [Configurations](#configurations)
 
 ## Configurations
 1. Edit */data/system.json* to change 
@@ -46,5 +46,3 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
-
-[![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService)
