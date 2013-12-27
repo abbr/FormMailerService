@@ -31,6 +31,9 @@ var UserInstanceCtrl = [ '$scope', '$modalInstance', 'item', 'Users', '$location
     return $scope.userArr.indexOfObject('username', value) < 0 || (item && item.username === value);
   };
 
+  $scope.requiredIfNew = function(value) {
+    return item || (value && value.length > 0);
+  };
 } ];
 
 angular.module('formMailerServiceApp').controller('UsersCtrl', [ '$scope', 'Users', '$modal', '$location', function($scope, Users, $modal, $location) {

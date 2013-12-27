@@ -85,6 +85,16 @@ body {
 	vertical-align: middle
 }
 
+.css-form 
+{
+	input.ng-invalid-required-if-new:focus,
+	input.ng-invalid-unique:focus,
+	input.ng-invalid-minlength:focus,
+ 	{
+  	border: 2px solid red;
+	}
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {

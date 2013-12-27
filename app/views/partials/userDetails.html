@@ -18,7 +18,7 @@
           <tr>
             <td>Password</td>
             <td>
-              <input type="password" ng-model="item.password" required ng-minlength='6'>
+              <input type="password" ng-model="item.password" ng-minlength='6' ui-validate="{requiredIfNew : 'requiredIfNew($value)' }">
             </td>
           </tr>
           <tr ng-if='item.username != cu.username'>
