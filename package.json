@@ -1,7 +1,7 @@
 {
   "name" : "form-mailer-service",
   "description" : "FormMailer is a service application emailing forms posted by users from a registered web site",
-  "version" : "0.0.5",
+  "version" : "0.0.6",
   "license" : "MIT",
   "author" : {
     "name" : "Fred"

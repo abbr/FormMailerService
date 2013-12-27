@@ -50,9 +50,9 @@ Administration:
 Following configs are defined in */data/system.json*:
 
 1. *emailTransport* defines email settings. *FormMailer* depends on [Nodemailer](https://github.com/andris9/Nodemailer). For supported email transports and corresponding settings, see [Nodemailer Readme](https://github.com/andris9/Nodemailer#possible-transport-methods). SMTP is the only transport tested. 
-2. *authenticationSchemes* defines authentication schemes for *FormMailer Service Administration* site. Supported authentication schemes are SSO (a.k.a reverse-proxy), form and basic. SSO can be chained to form or basic as fallback. In SSO authentication scheme, the HTTP header name containing authenticated user name is defined in property *userHeader*. 
+2. *authenticationSchemes* defines authentication schemes for *FormMailer Service Administration* site. Supported authentication schemes are SSO (a.k.a reverse-proxy), form and basic. SSO can be chained to form or basic authentication to use them as fallback, thus *authenticationSchemes* is an array. When using SSO, the HTTP header name containing authenticated user name is defined in property *userHeader*. Unlike form or basic authentication, SSO doesn't use application defined password. However, it requires *userHeader* value matching one of the registered user names for authorization.  
 3. *repository* defines data repository types. Supported *types* are *file* and *mongodb*. For *mongodb*, supply [connection string](http://docs.mongodb.org/manual/reference/connection-string/) in property *connection_string* and [connection options](http://mongoosejs.com/docs/connections.html#options) in *connection_options*.
-For changes to take effect, restart Node.
+For above changes to take effect, restart Node.
 
 ## Current Limitations
 1. Clustering is not supported due to in-memory caching. 
