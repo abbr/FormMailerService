@@ -77,12 +77,12 @@ body {
 .leftContent{
 	display: inline-block; 
 	width: 79%;
+	vertical-align: middle;
 }
 .rightContent{
 	display: inline-block; 
 	width: 19%; 
-	height: 100%; 
-	vertical-align: middle
+	vertical-align: middle;
 }
 
 .css-form 
