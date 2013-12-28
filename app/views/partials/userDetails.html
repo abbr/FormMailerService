@@ -13,6 +13,7 @@
           <tr ng-if='item.username != cu.username'>
             <td>Name</td>
             <td><input name='un' ng-model="item.username" required
+              style='max-width: 90%'
               ui-validate="{unique : 'unique($value)' }"> <span
               class='alert-error' ng-show='form.un.$error.unique'>duplicated</span>
             </td>
@@ -20,7 +21,7 @@
           <tr>
             <td>Password</td>
             <td><input type="password" ng-model="item.password"
-              ng-minlength='6'
+              ng-minlength='6' style='max-width: 90%'
               ui-validate="{requiredIfNew : 'requiredIfNew($value)' }">
             </td>
           </tr>
