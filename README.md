@@ -21,6 +21,7 @@ Administration:
 
 1. Supports SSO, basic and login form based authentication
 2. multiple administrators per site form
+3. mobile friendly
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
