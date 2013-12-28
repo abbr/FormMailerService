@@ -24,7 +24,7 @@ Administration:
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
-2. Download and expand *FormMailer-service.zip* from a [release](https://github.com/abbr/FormMailerService/releases)
+2. Download and expand *FormMailer-service.zip* from latest [release](https://github.com/abbr/FormMailerService/releases)
 3. Set environment variable *NODE_ENV* to production
 4. Go to expanded FormMailer-service directory and run `npm install`
 5. Run `node server.js` to launch application

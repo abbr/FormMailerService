@@ -91,7 +91,8 @@ body {
 	input.ng-invalid-unique:focus,
 	input.ng-invalid-minlength:focus,
  	{
-  	border: 2px solid red;
+  	border: 2px solid #e9322d;
+  	box-shadow: 0 0 6px #f8b9b7;
 	}
 }
 
