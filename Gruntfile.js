@@ -296,11 +296,6 @@ module.exports = function(grunt) {
           expand : true,
           dest : 'heroku',
           src : ['data/**/*']
-        }, {
-          expand : true,
-          cwd : 'data/',
-          dest : 'heroku/data-original',
-          src : ['**/*']
         }]
       },
       styles : {
