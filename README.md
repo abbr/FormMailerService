@@ -23,7 +23,7 @@ Administration:
 1. Supports SSO, basic and login form based authentication
 2. multiple administrators per site form
 3. mobile friendly
-4. No need to refresh browser (F5) any more!  - changes made by other administrators are pushed from server to browser automatically thanks to [Sockeet.IO](http://socket.io/)
+4. No need to refresh browser (F5) any more!  - changes made by other administrators are pushed from server to browser automatically thanks to [Socket.IO](http://socket.io/)
 
 Architecture:
 
