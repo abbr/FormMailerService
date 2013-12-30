@@ -11,6 +11,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 4. Webmaster also designs a success/failure page or message box in his site to handle the completion of form submission.
 
 ## Features
+
 Form handling:
 
 1. Both x-domain Ajax and plain HTML \<form\> submission
@@ -53,9 +54,6 @@ Following configs are defined in */data/system.json* and requires restarting *No
 1. *emailTransport* defines email settings. *FormMailer* depends on [Nodemailer](https://github.com/andris9/Nodemailer). For supported email transports and corresponding settings, see [Nodemailer Readme](https://github.com/andris9/Nodemailer#possible-transport-methods). SMTP is the only transport tested. 
 2. *authenticationSchemes* defines authentication schemes for *FormMailer Service Administration* site. Supported authentication schemes are SSO (a.k.a reverse-proxy), form and basic. SSO can be chained to form or basic authentication to use them as fallback, thus *authenticationSchemes* is an array. When using SSO, the HTTP header name containing authenticated user name is defined in property *userHeader*. Unlike form or basic authentication, SSO doesn't use application defined password. However, it requires *userHeader* value matching one of the registered user names for authorization.  
 3. *repository* defines data repository types. Supported *types* are *file* and *mongodb*. For *mongodb*, supply [connection string](http://docs.mongodb.org/manual/reference/connection-string/) in property *connection_string* and [connection options](http://mongoosejs.com/docs/connections.html#options) in *connection_options*.
-
-## Current Limitations
-1. Clustering is not supported due to in-memory caching. 
 
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
