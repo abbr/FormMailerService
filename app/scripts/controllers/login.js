@@ -1,6 +1,10 @@
 'use strict';
 
-angular.module('formMailerServiceApp').controller('LoginCtrl', [ '$scope', '$location', '$http', '$window', function($scope, $location, $http, $window) {
+angular.module('formMailerServiceApp').controller('LoginCtrl', ['$scope', '$location', '$http', '$window',
+function($scope, $location, $http, $window) {
+  if ($scope.cu.username) {
+    $location.path('/admin').replace();
+  }
   $scope.doLogin = function(username, password) {
     $http.post('api/login', {
       'username' : username,
@@ -13,4 +17,4 @@ angular.module('formMailerServiceApp').controller('LoginCtrl', [ '$scope', '$loc
       $window.$('#login-form').effect('shake');
     });
   };
-} ]);
+}]);
