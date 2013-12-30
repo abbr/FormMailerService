@@ -23,6 +23,14 @@ Administration:
 1. Supports SSO, basic and login form based authentication
 2. multiple administrators per site form
 3. mobile friendly
+4. No need to refresh browser (F5) any more!  - changes made by other administrators are pushed from server to browser automatically thanks to [Sockeet.IO](http://socket.io/)
+
+Architecture:
+
+Supports file or MongoDB as data repository. File is ideal for single server hosting. With replication-enabled MongoDB as data repo, a [shared-nothing architecture](http://en.wikipedia.org/wiki/Shared_nothing_architecture) can be achieved to build geographically redundant highly available web service.
+
+## Live Demo
+Administration site is available at [Heroku](http://pacific-reaches-9909.herokuapp.com/). Login as `admin/admin`. Demo site is slightly customized to protect the `admin` account. Data is reset daily.
 
 ## Production Installation
 1. Install [Node.js](http://nodejs.org/)
