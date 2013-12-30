@@ -88,6 +88,7 @@ app.all('/*', passport.authenticationChain, controllers.index);
 // bootstrap to get sites and users array async when using mongoose
 require('./lib/daos/user').getUsersAsync(function() {
   require('./lib/daos/site').getSitesAsync(function() {
+    require('./lib/daos/journal');
     // Start server
     var port = process.env.PORT || 3000;
     server.listen(port, function() {
