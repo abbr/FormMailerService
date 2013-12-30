@@ -65,3 +65,7 @@ Following configs are defined in */data/system.json* and requires restarting *No
 
 ## More Documentations
 See [wiki](https://github.com/abbr/FormMailerService/wiki)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/abbr/formmailerservice/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
