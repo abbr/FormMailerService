@@ -74,6 +74,10 @@ body {
   display: none !important;
 }
 
+input[type="checkbox"]{
+  margin-top: 0px;
+}
+
 .leftContent{
 	display: inline-block; 
 	width: 79%;

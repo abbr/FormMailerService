@@ -1,13 +1,19 @@
 <div class="jumbotron">
   <form id='login-form'>
     <div>
-      <label>Username:</label> <input ng-model='username'/>
+      <label>Username:</label> <input ng-model='username' />
     </div>
     <div>
-      <label>Password:</label> <input type="password" ng-model='password'/>
+      <label>Password:</label> <input type="password"
+        ng-model='password' />
     </div>
     <div>
-      <input type="submit" value="Log In" ng-click='doLogin(username, password)'/>
+      <input type="checkbox" ng-model='remember' />
+      Remember me
+    </div>
+    <div>
+      <input type="submit" value="Log In"
+        ng-click='doLogin(username, password, remember)' />
     </div>
   </form>
 </div>

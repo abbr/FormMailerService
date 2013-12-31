@@ -1,7 +1,7 @@
 'use strict';
 
 Array.prototype.indexOfObject = function(property, value) {
-  for ( var i = 0, len = this.length; i < len; i++) {
+  for (var i = 0, len = this.length; i < len; i++) {
     if (this[i][property] === value)
       return i;
   }
@@ -44,7 +44,7 @@ app.configure(function() {
   app.use(express.logger('dev'));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
-  app.use(express.session({
+  app.use(express.cookieSession({
     secret : 'ffoisaiods984'
   }));
   app.use(passport.initialize());

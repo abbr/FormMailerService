@@ -5,10 +5,11 @@ function($scope, $location, $http, $window) {
   if ($scope.cu.username) {
     $location.path('/admin').replace();
   }
-  $scope.doLogin = function(username, password) {
+  $scope.doLogin = function(username, password, remember) {
     $http.post('api/login', {
       'username' : username,
-      'password' : password
+      'password' : password,
+      'remember' : remember
     }).success(function(data) {
       $scope.updateCU(data);
       $location.path(($scope.rdu || '/admin'));
