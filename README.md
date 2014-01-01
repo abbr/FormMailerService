@@ -30,31 +30,31 @@ Architecture:
 Supports file or MongoDB as data repository. File is ideal for single server hosting. With replication-enabled MongoDB as data repo, a [shared-nothing architecture](http://en.wikipedia.org/wiki/Shared_nothing_architecture) can be achieved to build geographically redundant highly available web service.
 
 ## Live Demo
-Administration site is available at [Heroku](http://pacific-reaches-9909.herokuapp.com/). Login as `admin/admin`. Demo site is slightly customized to protect the `admin` account. Data is reset daily.
+Administration site is available at [Heroku](http://pacific-reaches-9909.herokuapp.com/). Login as `admin/admin`. Demo site is slightly customized to protect `admin` account. Data is reset daily.
 
 ## Production Installation
-1. Install [Node.js](http://nodejs.org/)
-2. Download and expand *FormMailer-service.zip* from latest [release](https://github.com/abbr/FormMailerService/releases)
-3. Set environment variable *NODE_ENV* to production
-4. Go to expanded FormMailer-service directory and run `npm install`
-5. Run `node server.js` to launch application
-6. Go to [http://localhost:3000](http://localhost:3000) to access the admin site. Login as admin/admin
-7. To change port, modify server.js
-8. Change [Configurations](#configurations)
+1. Install [Node.js](http://nodejs.org/).
+2. Download and expand *FormMailer-service.zip* from latest [release](https://github.com/abbr/FormMailerService/releases).
+3. Set environment variable *NODE_ENV* to production.
+4. Go to expanded FormMailer-service directory and run `npm install`.
+5. Run `node server.js` to launch application.
+6. Go to [http://localhost:3000](http://localhost:3000) to access the admin site. Login as admin/admin.
+7. To change port, either modifing file */server.js* or set env *PORT* before launching *node*.
+8. Change [Configurations](#configurations).
 9. Running *Node* as a service or setting up a front-end reverse proxy are beyond the scope of this document. It's easy to google a solution.
 
 
 ## Developer Installation
-1. Install [Ruby](http://www.ruby-lang.org/en/downloads/)
-2. Install [Compass](http://compass-style.org/install/) by running `gem update --system;gem install compass`
-3. Install [Node.js](http://nodejs.org/)
-4. Run `npm install -g yo` to intall [Yeoman](http://yeoman.io/)
-5. Clone git repo from [https://github.com/abbr/FormMailerService.git](https://github.com/abbr/FormMailerService.git). Alternatively, create/go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be downloaded to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. Alternatively, 
-6. Go to application root and run `npm install`, followed by `bower install`
+1. Install [Ruby](http://www.ruby-lang.org/en/downloads/).
+2. Install [Compass](http://compass-style.org/install/) by running `gem update --system;gem install compass`.
+3. Install [Node.js](http://nodejs.org/).
+4. Run `npm install -g yo` to intall [Yeoman](http://yeoman.io/).
+5. Clone git repo from [https://github.com/abbr/FormMailerService.git](https://github.com/abbr/FormMailerService.git). Alternatively, create/go to the folder where you want to install the application and  Run `npm install form-mailer-service`. The application will be downloaded to subfolder *node_modules/form-mailer-service*. Move subfolder *form-mailer-service* to the final location and rename folder if need. 
+6. Go to application root and run `npm install`, followed by `bower install`.
 7. Launch the application in development mode by running `grunt serve`. To launch in production mode, run `grunt serve:dist`.
 8. The launcher will open [http://localhost:9000](http://localhost:9000). Log in as admin/admin.
-9. To stop, enter Ctrl-C twice.
-10. Change [Configurations](#configurations)
+9. To stop, enter *Ctrl-C* twice.
+10. Change [Configurations](#configurations).
 
 ## Configurations
 Following configs are defined in */data/system.json* and requires restarting *Node* for changes to take effect:
