@@ -17,8 +17,8 @@
 		}
 	],
 	"repository": {
-		"type": "file",
+		"type": "mongodb",
 		"_comment": "supported types: file, mongodb",
-		"connection_string": "mongodb://localhost/formmailerservice"
+		"connection_string": "mongodb://localhost,localhost:27018,localhost:27019/formmailerservice"
 	}
 }
