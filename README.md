@@ -14,7 +14,7 @@ The following steps briefly describe the workflow using *FormMailer Service*:
 
 Form handling:
 
-1. Both x-domain Ajax and plain HTML \<form\> submission
+1. Both x-domain Ajax and plain HTML &lt;form&gt; submission
 2. [reCAPTCHA](http://www.google.com/recaptcha)
 3. multiple email transports: SMTP, Amazon SES, Sendmail and Direct
 
