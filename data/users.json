@@ -3,9 +3,5 @@
     "username": "admin",
     "password": "admin",
     "superAdmin": true
-  },
-  {
-    "username": "sfd",
-    "password": "xxxxxx"
   }
 ]
