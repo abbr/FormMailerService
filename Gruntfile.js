@@ -276,9 +276,16 @@ module.exports = function(grunt) {
       heroku : {
         options : {
           processContent : function(c, fp) {
-            if (fp.indexOf('users.html') < 0)
-              return c;
-            return c.replace("ng-click=\"editUser(user)\"", "ng-click=\"editUser(user)\" ng-if=\"user.username != 'admin'\"").replace("ng-if=\"cu.username != user.username", "ng-if=\"cu.username != user.username && user.username != 'admin'");
+            switch(fp) {
+              case 'views/partials/users.html':
+                return c.replace("ng-click=\"editUser(user)\"", "ng-click=\"editUser(user)\" ng-if=\"user.username != 'admin'\"").replace("ng-if=\"cu.username != user.username", "ng-if=\"cu.username != user.username && user.username != 'admin'");
+                break;
+              case 'views/index.html':
+                return c.replace(/UA-XXXXX-X/g, "UA-46881637-1");
+                break;
+              default:
+                return c;
+            }
           },
           processContentExclude : ['**', '!views/**']
         },
