@@ -47,6 +47,7 @@
 		"grunt-express-server": "~0.4.5",
 		"grunt-open": "~0.2.0",
 		"connect-livereload": "~0.3.0",
+		"karma": "~0.10.0",
 		"karma-ng-html2js-preprocessor": "~0.1.0",
 		"karma-ng-scenario": "~0.1.0",
 		"grunt-karma": "~0.6.2",
