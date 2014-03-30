@@ -1,7 +1,7 @@
 {
 	"name": "form-mailer-service",
 	"description": "FormMailer is a service application emailing forms posted by users from a registered web site",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"license": "MIT",
 	"author": {
 		"name": "Fred"
@@ -18,7 +18,7 @@
 		"mongoose": "~3.8.0",
 		"password-hash": "~1.2.1",
 		"underscore": "~1.5.2",
-		"deasync": "~0.0.3"
+		"deasync": "~0.0.6"
 	},
 	"devDependencies": {
 		"grunt": "~0.4.1",
