@@ -85,14 +85,8 @@ app.get('/partials/*', controllers.partials);
 // form posting
 app.all('/site/*', controllers.sendMail);
 app.all('/*', passport.authenticationChain, controllers.index);
-// bootstrap to get sites and users array async when using mongoose
-require('./lib/daos/user').getUsersAsync(function() {
-  require('./lib/daos/site').getSitesAsync(function() {
-    require('./lib/daos/journal');
-    // Start server
-    var port = process.env.PORT || 3000;
-    server.listen(port, function() {
-      console.log('Express server listening on port %d in %s mode', port, app.get('env'));
-    });
-  });
+// Start server
+var port = process.env.PORT || 3000;
+server.listen(port, function() {
+  console.log('Express server listening on port %d in %s mode', port, app.get('env'));
 });
