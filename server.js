@@ -1,12 +1,17 @@
 'use strict';
 
-Array.prototype.indexOfObject = function(property, value) {
-  for (var i = 0, len = this.length; i < len; i++) {
-    if (this[i][property] === value)
-      return i;
-  }
-  return -1;
-};
+Object.defineProperty(Array.prototype, 'indexOfObject', {
+	enumerable : false,
+	value : function(property, value) {
+		for ( var i = 0, len = this.length; i < len; i++) {
+			if (this[i][property] === value) {
+				return i;
+			}
+		}
+		return -1;
+	}
+});
+
 
 Array.prototype.splicePositiveIndex = function() {
   if (arguments[0] < 0)
