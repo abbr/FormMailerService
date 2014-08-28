@@ -1,7 +1,7 @@
 FormMailer Service [![Build Status](https://travis-ci.org/abbr/FormMailerService.png)](https://travis-ci.org/abbr/FormMailerService) [![NPM version](https://badge.fury.io/js/form-mailer-service.png)](http://badge.fury.io/js/form-mailer-service) [![Dependency Status](https://gemnasium.com/abbr/FormMailerService.png)](https://gemnasium.com/abbr/FormMailerService)
 =================
 ## About 
-*FormMailer* is a service application emailing simple forms posted by users of a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data that can be represented in terms of name-value pairs of strings such as typical feedback or contact forms.
+*FormMailer* is a service application emailing simple forms posted by users of a registered web site, freeing webmasters from the burden to write server-side scripts to implement email dispatching. By *simple form* I mean form data that can be represented in terms of flat name-value pairs of strings such as typical feedback or contact forms.
 
 The following steps briefly describe the workflow using *FormMailer Service*:
 
